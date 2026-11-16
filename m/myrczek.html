@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="nGr7V4wvsmoVSJk0_-5LWlnEwExOBao1q_NPxGS70pc" />
+<title>Wojciech Myrczek — Jazz Vocalist</title>
+<meta name="description" content="Wojciech Myrczek – polski wokalista jazzowy. Zwycięzca Montreux Jazz Voice Competition. Wokalista Roku Jazz Forum 2015–2024. Doktor sztuk muzycznych.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0804;
+    --bg2: #100e09;
+    --gold: #c9a84c;
+    --gold-light: #e8cc80;
+    --cream: #f0e8d8;
+    --muted: #7a7060;
+    --white: #faf8f3;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed; top: 0; left: 0;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width .2s, height .2s, background .2s;
+  }
+  .cursor-ring {
+    position: fixed; top: 0; left: 0;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,168,76,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform .12s ease, width .3s, height .3s;
+  }
+  body:hover .cursor { width: 8px; height: 8px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    background: linear-gradient(to bottom, rgba(10,8,4,0.95) 0%, transparent 100%);
+    transition: background .4s;
+  }
+  nav.scrolled {
+    background: rgba(10,8,4,0.97);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 18px 60px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative;
+    padding: 0 60px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1408 0%, #0a0804 40%, #0d0b06 100%);
+  }
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .hero-lines {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+    overflow: hidden;
+  }
+  .hero-lines::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(201,168,76,0.04) 59px,
+      rgba(201,168,76,0.04) 60px
+    );
+    opacity: 0.5;
+  }
+  .hero-lines::after { display: none; }
+  .hero-accent {
+    position: absolute; right: 60px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(200px, 20vw, 340px);
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.12);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+  }
+  .hero-content { position: relative; z-index: 3; max-width: 780px; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 6px 16px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(62px, 8vw, 120px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1.1s 0.5s forwards;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-desc {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(240,232,216,0.72);
+    font-weight: 400;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 1.1s 0.7s forwards;
+    text-shadow: 0 1px 8px rgba(10,8,4,0.6);
+  }
+  .hero-cta {
+    display: flex; gap: 20px; align-items: center;
+    opacity: 0;
+    animation: fadeUp 1.1s 0.9s forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background .3s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-block;
+    padding: 13px 36px;
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold-light);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    transition: border-color .3s, color .3s, transform .2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute; bottom: 40px; right: 60px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeIn 1s 1.4s forwards;
+  }
+  .hero-scroll span {
+    font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+    writing-mode: vertical-rl;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* SECTION BASE */
+  section { padding: 120px 60px; }
+  .section-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    display: inline-block;
+    width: 40px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* HERO PHOTO */
+  .hero-photo {
+    position: absolute; inset: 0;
+    background-image: url('photo_01.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    filter: grayscale(30%);
+    opacity: 0;
+    animation: fadeIn 1.8s 0.2s forwards;
+  }
+  .hero-photo-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(10,8,4,0.92) 0%,
+      rgba(10,8,4,0.75) 45%,
+      rgba(10,8,4,0.4) 100%
+    );
+  }
+
+  /* PHOTO SEPARATOR */
+  .photo-separator {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+  }
+  .photo-separator img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: grayscale(20%);
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .photo-separator:hover img { transform: scale(1); }
+  .photo-separator-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,8,4,0.6) 0%,
+      rgba(10,8,4,0.2) 50%,
+      rgba(10,8,4,0.6) 100%
+    );
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-separator-text {
+    text-align: center;
+  }
+  .photo-separator-text .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.3;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.8);
+    margin-bottom: 16px;
+  }
+  .photo-separator-text .attr {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* GALLERY */
+  #gallery {
+    background: var(--bg2);
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+  .gallery-track-wrap {
+    position: relative;
+    margin-top: 60px;
+    overflow: hidden;
+  }
+  .gallery-track {
+    display: flex;
+    gap: 3px;
+    cursor: grab;
+    user-select: none;
+    padding-bottom: 60px;
+  }
+  .gallery-track:active { cursor: grabbing; }
+  .gallery-item {
+    flex: 0 0 auto;
+    width: 380px;
+    height: 520px;
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%);
+    transition: transform .7s ease, filter .5s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+    filter: grayscale(0%);
+  }
+  .gallery-item-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,8,4,0.6) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity .4s;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-credit {
+    position: absolute; bottom: 16px; right: 16px;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.6);
+    opacity: 0;
+    transition: opacity .4s;
+  }
+  .gallery-item:hover .gallery-credit { opacity: 1; }
+  .gallery-drag-hint {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0;
+    padding: 20px 60px 0;
+  }
+  .gallery-drag-hint::before {
+    content: '←';
+    font-size: 1rem;
+    color: var(--gold);
+    animation: hintPulse 2s infinite;
+  }
+  .gallery-drag-hint::after {
+    content: '→';
+    font-size: 1rem;
+    color: var(--gold);
+    animation: hintPulse 2s 0.5s infinite;
+  }
+
+  /* VIDEO TITLES */
+  .video-title-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 20px 14px;
+    background: linear-gradient(to top, rgba(10,8,4,0.95) 0%, transparent 100%);
+    transform: translateY(0);
+  }
+  .video-title-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+  }
+  .video-grid .video-card:first-child .video-title-text {
+    font-size: 1.3rem;
+  }
+  .video-title-sub {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  /* No-thumbnail placeholder */
+  .video-no-thumb {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1408 0%, #0d0b07 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-no-thumb-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.1);
+    -webkit-text-stroke: 1px rgba(201,168,76,0.2);
+  }
+
+  @keyframes hintPulse {
+    0%, 100% { opacity: 0.4; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(4px); }
+  }
+
+  /* AWARDS TICKER */
+  #awards-bar {
+    background: var(--gold);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 35s linear infinite;
+  }
+  #awards-bar:hover .ticker-inner {
+    animation-play-state: paused;
+  }
+  .ticker-item {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bg);
+    font-weight: 500;
+    padding: 0 40px;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+  .ticker-sep { color: rgba(10,8,4,0.4); }
+  @media (max-width: 600px) {
+    .ticker-item { font-size: 0.65rem; padding: 0 28px; }
+  }
+
+  /* BIO */
+  #bio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+    background: var(--bg2);
+    position: relative;
+  }
+  #bio::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 60px; bottom: 60px;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+    opacity: 0.3;
+  }
+  .bio-text p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: rgba(240,232,216,0.75);
+    margin-bottom: 20px;
+  }
+  .bio-text p:first-of-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--cream);
+    font-style: italic;
+  }
+  .bio-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 20px;
+  }
+  .stat-card {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 28px 24px;
+    transition: background .3s, border-color .3s;
+  }
+  .stat-card:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.3);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bio-right { padding-top: 20px; }
+  .collabs-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    margin-top: 40px;
+  }
+  .collab-list {
+    list-style: none;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .collab-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(240,232,216,0.6);
+    padding: 6px 14px;
+    border: 1px solid rgba(201,168,76,0.1);
+    transition: color .3s, border-color .3s;
+  }
+  .collab-list li:hover { color: var(--gold-light); border-color: rgba(201,168,76,0.35); }
+
+  /* ALBUMS */
+  #discography {
+    background: var(--bg);
+    position: relative;
+  }
+  .albums-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .album-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #1a1608;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+  }
+  .album-cover {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .album-art {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .album-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.08);
+    line-height: 1;
+    transition: transform .6s, color .6s;
+  }
+  .album-card:hover .album-num {
+    transform: scale(1.2);
+    color: rgba(201,168,76,0.14);
+  }
+  .album-cover-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s, filter .4s;
+    filter: brightness(0.55);
+  }
+  .album-card:hover .album-cover-img {
+    transform: scale(1.04);
+    filter: brightness(0.35);
+  }
+  .album-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,8,4,0.44) 0%, rgba(10,8,4,0.07) 55%, transparent 100%);
+    padding: 28px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    transition: background .4s;
+  }
+  .album-card:hover .album-overlay {
+    background: linear-gradient(to top, rgba(10,8,4,0.70) 0%, rgba(10,8,4,0.28) 65%, rgba(10,8,4,0.05) 100%);
+  }
+  .album-year {
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .album-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .album-listen {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .3s, transform .3s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .album-listen::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--gold);
+  }
+  .album-card:hover .album-listen { opacity: 1; transform: translateY(0); }
+
+  /* SPOTIFY embed section */
+  #music {
+    background: var(--bg2);
+  }
+  .music-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 60px;
+  }
+  .spotify-wrap {
+    border: 1px solid rgba(201,168,76,0.12);
+    overflow: hidden;
+    transition: border-color .3s;
+  }
+  .spotify-wrap:hover { border-color: rgba(201,168,76,0.35); }
+  .spotify-wrap iframe { display: block; }
+
+  /* VIDEO */
+  #video {
+    background: var(--bg);
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .video-card {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #0d0b07;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+  }
+  .video-grid .video-card:first-child {
+    aspect-ratio: 16/9;
+  }
+  .video-thumb {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, filter .4s;
+    filter: brightness(0.85);
+  }
+  .video-card:hover .video-thumb {
+    transform: scale(1.04);
+    filter: brightness(0.6);
+  }
+  .video-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,8,4,0.65) 0%, transparent 55%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: background .4s;
+  }
+  .video-card:hover .video-card-overlay {
+    background: linear-gradient(to top, rgba(10,8,4,0.85) 0%, rgba(10,8,4,0.25) 100%);
+  }
+  .video-play-btn {
+    width: 60px; height: 60px;
+    border: 2px solid rgba(201,168,76,0.7);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .3s, background .3s, transform .3s;
+    margin-bottom: 14px;
+  }
+  .video-card:hover .video-play-btn {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.15);
+    transform: scale(1.12);
+  }
+  .video-play-btn svg {
+    width: 22px; height: 22px;
+    fill: var(--gold-light);
+    margin-left: 4px;
+  }
+  .video-grid .video-card:first-child .video-play-btn {
+    width: 80px; height: 80px;
+  }
+  .video-grid .video-card:first-child .video-play-btn svg {
+    width: 30px; height: 30px;
+  }
+  .video-yt-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.7);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s, transform .3s;
+  }
+  .video-card:hover .video-yt-label { opacity: 1; transform: translateY(0); }
+
+  /* HERO PHOTO BG */
+  .hero-photo-bg {
+    position: absolute; inset: 0;
+    background-image: url('photo_04.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    filter: grayscale(100%);
+    opacity: 0.48;
+    z-index: 0;
+    transform: scaleX(-1);
+  }
+  /* This overlay sits ABOVE the photo (z-index 1) so it's not affected by the photo's filter/opacity */
+  .hero-photo-gradient {
+    position: absolute; inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right,
+      rgba(10,8,4,1.0)  0%,
+      rgba(10,8,4,0.95) 12%,
+      rgba(10,8,4,0.80) 26%,
+      rgba(10,8,4,0.50) 40%,
+      rgba(10,8,4,0.18) 56%,
+      rgba(10,8,4,0.05) 68%,
+      transparent       80%
+    );
+  }
+
+  /* PHOTO SEPARATOR */
+  .photo-separator {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+  }
+  .photo-separator img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: grayscale(100%);
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .photo-separator:hover img { transform: scale(1.0); }
+  .photo-separator-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--bg) 0%,
+      transparent 15%,
+      transparent 85%,
+      var(--bg) 100%
+    );
+  }
+  .photo-separator-text {
+    position: absolute;
+    bottom: 60px; left: 60px;
+    z-index: 2;
+  }
+  .photo-separator-text blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.3;
+    max-width: 600px;
+  }
+  .photo-separator-text cite {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+    margin-top: 18px;
+  }
+
+  /* PHOTO GALLERY */
+  #gallery {
+    background: var(--bg);
+    padding: 80px 0 80px 60px;
+    overflow: hidden;
+  }
+  .gallery-header {
+    padding-right: 60px;
+    margin-bottom: 40px;
+  }
+  .gallery-strip {
+    display: flex;
+    gap: 3px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-right: 60px;
+    cursor: grab;
+  }
+  .gallery-strip:active { cursor: grabbing; }
+  .gallery-strip::-webkit-scrollbar { display: none; }
+  .gallery-item {
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  .gallery-item:nth-child(odd)  { width: 320px; height: 420px; }
+  .gallery-item:nth-child(even) { width: 260px; height: 420px; }
+  .gallery-item:first-child     { width: 380px; height: 420px; }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: transform .7s ease, filter .5s;
+  }
+  /* Per-photo kadry */
+  .gallery-item:nth-child(1) img { object-position: center 30%; } /* photo_04 landscape - środek */
+  .gallery-item:nth-child(2) img { object-position: 60% top; }    /* photo_03 portrait - od góry */
+  .gallery-item:nth-child(3) img { object-position: center 25%; } /* photo_05 landscape */
+  .gallery-item:nth-child(4) img { object-position: center top; } /* photo_01 portrait - od góry */
+  .gallery-item:nth-child(5) img { object-position: center 20%; } /* photo_07 landscape */
+  .gallery-item:nth-child(6) img { object-position: 75% 20%; }    /* photo_02 landscape - twarz po prawej */
+  .gallery-item:hover img {
+    transform: scale(1.06);
+    filter: grayscale(40%);
+  }
+  .gallery-item-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,8,4,0.5) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity .4s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gallery-item-overlay::after {
+    content: '⊕';
+    font-size: 2rem;
+    color: rgba(201,168,76,0.7);
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity .3s, transform .3s;
+  }
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+  .gallery-item:hover .gallery-item-overlay::after { opacity: 1; transform: scale(1); }
+  .gallery-credit {
+    margin-top: 20px;
+    padding-right: 60px;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(10,8,4,0.97);
+    z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+  }
+  .lightbox.active { opacity: 1; pointer-events: all; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transform: scale(0.94);
+    transition: transform .4s;
+  }
+  .lightbox.active img { transform: scale(1); }
+  .lightbox-close {
+    position: absolute; top: 30px; right: 40px;
+    font-size: 1.8rem;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color .2s;
+    background: none; border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .lightbox-close:hover { color: var(--gold); }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: none; border: none;
+    color: var(--muted);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 20px;
+    transition: color .2s;
+  }
+  .lightbox-nav:hover { color: var(--gold); }
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
+  .lightbox-counter {
+    position: absolute; bottom: 30px;
+    font-size: 0.6rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* VIDEO TITLE */
+  .video-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-top: 0;
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s .05s, transform .3s .05s;
+    padding: 0 20px;
+    text-align: center;
+    max-width: 90%;
+  }
+  .video-card:hover .video-title { opacity: 1; transform: translateY(0); }
+  .video-fallback {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #18150a 0%, #0d0b06 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-fallback-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.15);
+    -webkit-text-stroke: 1px rgba(201,168,76,0.2);
+  }
+
+  /* FESTIVALS */
+  #festivals {
+    background: var(--bg2);
+    padding: 80px 60px;
+  }
+  .festivals-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 50px;
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+  .festival-item {
+    flex: 0 0 25%;
+    padding: 24px 28px;
+    border-right: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    transition: background .3s;
+  }
+  .festival-item:hover { background: rgba(201,168,76,0.05); }
+  .festival-item:nth-child(4n) { border-right: none; }
+  .festival-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .festival-location {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg);
+    padding: 120px 60px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  #contact::before {
+    content: 'KONTAKT';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 14vw, 220px);
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.04);
+    bottom: 20px; right: 40px;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .contact-minimal {
+    max-width: 480px;
+    margin: 0 auto 52px;
+    position: relative; z-index: 1;
+  }
+  .contact-simple {
+    padding: 22px 0;
+    text-align: center;
+  }
+  .contact-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .contact-org {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .contact-item-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color .3s;
+  }
+  .contact-item-link:hover { color: var(--white); }
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 22px 0;
+    text-align: left;
+  }
+  .contact-row-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+  .contact-row-right { flex: 1; }
+  .contact-row-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.3;
+    display: block;
+  }
+  .contact-row-sub {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 3px;
+    letter-spacing: 0.05em;
+  }
+  .contact-link {
+    text-decoration: none;
+    transition: color .3s;
+  }
+  .contact-link:hover { color: var(--gold-light); }
+  .contact-divider {
+    height: 1px;
+    background: rgba(201,168,76,0.12);
+  }
+  .contact-social-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .social-link {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    text-decoration: none;
+    transition: border-color .3s, color .3s, background .3s;
+  }
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+  .social-link svg { width: 17px; height: 17px; }
+
+  /* LANGUAGE SWITCHER */
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 32px;
+  }
+  .lang-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 24px;
+    border: 1px solid rgba(201,168,76,0.2);
+    text-decoration: none;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    color: var(--muted);
+    transition: border-color .3s, color .3s;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 2px;
+  }
+  .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .lang-btn.active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+  .lang-flag { font-size: 0.85rem; line-height: 1; }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    background: none; border: none;
+    padding: 4px;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%; height: 1px;
+    background: var(--gold-light);
+    transition: transform .3s, opacity .3s, width .3s;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(10,8,4,0.97);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .nav-mobile-overlay.open { opacity: 1; }
+  .nav-mobile-overlay a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 14px 0;
+    letter-spacing: 0.05em;
+    transition: color .3s;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    width: 70%;
+    text-align: center;
+  }
+  .nav-mobile-overlay a:last-child { border-bottom: none; }
+
+  /* FOOTER */
+  footer {
+    background: #060504;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    padding: 30px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  footer .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  footer p {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* REVEAL ON SCROLL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  @media (hover: none), (max-width: 1024px) {
+    .cursor, .cursor-ring { display: none !important; }
+    body { cursor: auto; }
+  }
+  @media (max-width: 1024px) {
+    nav { padding: 20px 30px; }
+    section { padding: 80px 30px; }
+    #bio { grid-template-columns: 1fr; gap: 50px; }
+    .albums-grid { grid-template-columns: 1fr 1fr; }
+    .music-inner { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: 1fr; }
+    .video-grid .video-card:first-child { grid-column: span 1; aspect-ratio: 16/9; }
+    .festival-item { flex: 0 0 50%; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    #hero { padding: 0 30px 70px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .contact-minimal { max-width: 100%; }
+    .contact-row { gap: 20px; }
+    #gallery { padding: 60px 0 60px 30px; }
+    .gallery-header { padding-right: 30px; }
+    .gallery-credit { padding-right: 30px; }
+  }
+  @media (max-width: 600px) {
+    .hero-name { font-size: clamp(52px, 14vw, 90px); }
+    .albums-grid { grid-template-columns: 1fr; }
+    .contact-row { flex-direction: column; gap: 4px; }
+    .contact-row-label { min-width: auto; }
+    /* Face centered, slightly right */
+    .hero-photo-bg { background-position: 18% 20%; }
+    /* Gradient: clear top, dark only at bottom */
+    .hero-photo-gradient {
+      background: linear-gradient(to bottom,
+        rgba(10,8,4,0.3)  0%,
+        rgba(10,8,4,0.05) 30%,
+        rgba(10,8,4,0.05) 50%,
+        rgba(10,8,4,0.6)  72%,
+        rgba(10,8,4,0.97) 100%
+      );
+    }
+    /* A: all content pushed to bottom */
+    #hero { padding: 0; justify-content: flex-end; }
+    .hero-content { padding: 0 28px 52px; max-width: 100%; display: flex; flex-direction: column; }
+    /* C: hide the long desc line */
+    .hero-desc { display: none; }
+    /* Swap order: name first, tag below */
+    .hero-name { order: 1; margin-bottom: 12px; }
+    .hero-tag  { order: 2; margin-bottom: 20px; align-self: flex-start; width: auto; display: inline-block; }
+    .hero-cta  { order: 3; flex-wrap: wrap; gap: 12px; }
+    .btn-primary, .btn-outline { padding: 13px 22px; font-size: 0.6rem; }
+    .hero-scroll { display: none; }
+  }
+
+  /* ===== KONCERTY (start) ===== */
+  #concerts { background: var(--bg); }
+
+  .gig-list { list-style: none; margin-top: 60px; border-top: 1px solid rgba(201,168,76,0.15); }
+  .gig { display: grid; grid-template-columns: 110px 1fr auto; gap: 40px; align-items: center;
+    padding: 28px 0; border-bottom: 1px solid rgba(201,168,76,0.15); transition: background .3s; }
+  .gig:hover { background: rgba(201,168,76,0.04); }
+  .gig-date { text-align: center; line-height: 1; }
+  .gig-day { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; color: var(--gold-light); }
+  .gig-month { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+  .gig-year { font-size: 0.55rem; letter-spacing: 0.2em; color: var(--muted); margin-top: 4px; }
+  .gig-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--white); line-height: 1.2; }
+  .gig-meta { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+  .gig-meta .sep { color: rgba(201,168,76,0.5); margin: 0 10px; }
+  .gig-meta a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(122,112,96,0.5); transition: color .3s, border-color .3s; }
+  .gig-meta a:hover { color: var(--gold-light); border-color: var(--gold); }
+  .gig-actions { display: flex; gap: 10px; }
+  .gig-btn { display: inline-block; padding: 11px 26px; border: 1px solid rgba(201,168,76,0.5); color: var(--gold-light);
+    font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; white-space: nowrap;
+    transition: border-color .3s, color .3s, background .3s; }
+  .gig-btn-ghost { border-color: rgba(201,168,76,0.22); color: var(--muted); }
+  .gig-btn:hover { border-color: var(--gold); color: var(--bg); background: var(--gold); }
+
+  .gig-more { display: block; margin: 40px auto 0; background: none; border: 1px solid rgba(201,168,76,0.3); color: var(--muted);
+    padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+    cursor: pointer; transition: color .3s, border-color .3s; }
+  .gig-more:hover { color: var(--gold-light); border-color: var(--gold); }
+  .gig-empty { margin-top: 60px; padding: 40px 0; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15);
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--cream); }
+  .gig-empty a { color: var(--gold-light); text-decoration: none; }
+  .gig-loading { margin-top: 60px; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+
+  @media (max-width: 700px) {
+    .gig { grid-template-columns: 72px 1fr; gap: 20px; padding: 22px 0; }
+    .gig-day { font-size: 2.4rem; }
+    .gig-title { font-size: 1.3rem; }
+    .gig-actions { grid-column: 2; }
+    .gig-actions:empty { display: none; }
+    .gig-btn { padding: 9px 18px; }
+    .gig-actions { flex-wrap: wrap; }
+  }
+  /* ===== KONCERTY (end) ===== */
+</style>
+</head>
+<body>
+
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">W. Myrczek</a>
+  <ul class="nav-links">
+    <li><a href="#bio">Bio</a></li>
+    <li><a href="#concerts">Koncerty</a></li>
+    <li><a href="#discography">Albumy</a></li>
+    <li><a href="#music">Muzyka</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#gallery">Galeria</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <a href="myrczek.html" class="lang-btn active"><span class="lang-flag">🇵🇱</span></a>
+    <a href="myrczek_en.html" class="lang-btn"><span class="lang-flag">🇬🇧</span></a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="nav-mobile-overlay" id="mobileMenu">
+  <a href="#bio" class="mobile-link">Bio</a>
+  <a href="#concerts" class="mobile-link">Koncerty</a>
+  <a href="#discography" class="mobile-link">Albumy</a>
+  <a href="#music" class="mobile-link">Muzyka</a>
+  <a href="#video" class="mobile-link">Video</a>
+  <a href="#gallery" class="mobile-link">Galeria</a>
+  <a href="#contact" class="mobile-link">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo-bg"></div>
+  <div class="hero-photo-gradient"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Jazz Vocalist · Poland</div>
+    <h1 class="hero-name">Wojciech<br><em>Myrczek</em></h1>
+    <p class="hero-desc">Wokalista jazzowy &nbsp;·&nbsp; Zwycięzca Montreux Jazz Voice Competition &nbsp;·&nbsp; <span style="white-space:nowrap">Doktor sztuk muzycznych</span></p>
+    <div class="hero-cta">
+      <a href="#music" class="btn-primary">Odkryj muzykę</a>
+      <a href="#concerts" class="btn-outline">Koncerty</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- AWARDS TICKER -->
+<div id="awards-bar">
+  <div class="ticker-inner">
+    <span class="ticker-item">Jazz Top — Wokalista Roku (Jazz Forum)</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Shure Montreux Jazz Voice Competition — I Miejsce &amp; Nagroda Publiczności 2013</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Grand Prix Jazz Voices Lithuania 2011</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Największa Indywidualność — Bielska Zadymka Jazzowa 2010</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Grand Prix Jazz Melomani 2014</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Doktor Sztuk Muzycznych</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker-item">Jazz Top — Wokalista Roku (Jazz Forum)</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Shure Montreux Jazz Voice Competition — I Miejsce &amp; Nagroda Publiczności 2013</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Grand Prix Jazz Voices Lithuania 2011</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Największa Indywidualność — Bielska Zadymka Jazzowa 2010</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Grand Prix Jazz Melomani 2014</span>
+    <span class="ticker-item ticker-sep">✦</span>
+    <span class="ticker-item">Doktor Sztuk Muzycznych</span>
+    <span class="ticker-item ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- BIO -->
+<section id="bio">
+  <div class="bio-text reveal">
+    <div class="section-label">O artyście</div>
+    <h2 class="section-title">Głos<br>na miarę<br><em>świata</em></h2>
+    <p>Polski wokalista jazzowy, który z gracją i pasją łączy tradycję swingu z nowoczesnymi technikami wokalnymi. Absolwent Instytutu Jazzu Akademii Muzycznej im. Karola Szymanowskiego w Katowicach. W śpiewie swobodnie posługuje się zarówno słowem, jak i scatem.</p>
+    <p>Od 2015 roku nieprzerwanie otrzymuje tytuł Wokalisty Roku w prestiżowej ankiecie <em>Jazz Top</em> miesięcznika <em>Jazz Forum</em> — po raz dziesiąty z rzędu. Zwycięzca I nagrody i nagrody publiczności w Shure Montreux Jazz Voice Competition (2013) — konkursie organizowanym w ramach legendarnego Montreux Jazz Festival w Szwajcarii. Laureat Grand Prix Jazz Voices na Litwie (2011) oraz nagrody Największa Indywidualność na Bielskiej Zadymce Jazzowej (2010). Jego talent sceniczny można było podziwiać na festiwalach w Szwajcarii, Holandii, Australii, Bułgarii i na scenach całej Polski.</p>
+    <p>W 2025 roku wystąpił na Gali Muzyki Jazzowej Fryderyk Festiwal, prezentując wspólnie z Leszkiem Możdżerem i Atom String Quartet piosenkę „Zielono mi" w hołdzie dla Jana „Ptaszyna" Wróblewskiego. Był też gościem Artura Andrusa w jego audycji <em>Nie do mówienia</em> w RMF Classic — <a href="https://www.rmfclassic.pl/program/NieDoMowienia-czyli-rozmowy-niezobowiazujace-Artura-Andrusa,697,s,54632.html" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3);">posłuchaj rozmowy</a>.</p>
+    <p>W styczniu 2026 roku wziął udział w Film Song Festival w Operze Nova w Bydgoszczy, gdzie wystąpił u boku uznanych amerykańskich artystów: Wayne'a Linseyego, Paula Jacksona Jr., Davida Delhomme'a i Teddy'ego Campbella.</p>
+    <p>Jest także cenionym pedagogiem akademickim — doktorem sztuk muzycznych, wykładającym w Akademii Sztuk Teatralnych w Krakowie.</p>
+    <div class="bio-stats">
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">albumy studyjne</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">10</div>
+        <div class="stat-label">lat na szczycie Jazz Top · ankieta Jazz Forum — Wokalista Roku</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Dr</div>
+        <div class="stat-label">doktor sztuk muzycznych · AST Kraków</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2013</div>
+        <div class="stat-label">Montreux Jazz Voice Competition — I miejsce &amp; Nagroda Publiczności</div>
+      </div>
+    </div>
+  </div>
+  <div class="bio-right reveal reveal-delay-1">
+    <div class="section-label">Dyskografia w skrócie</div>
+    <p style="font-size:0.88rem; line-height:1.85; color:rgba(240,232,216,0.65); margin-top:8px;">
+      <em style="color:var(--gold-light);">Młynarski. Bynajmniej.</em> (2024) — jazzowa reinterpretacja piosenek Wojciecha Młynarskiego z 22-osobową orkiestrą Aukso.<br><br>
+      <em style="color:var(--gold-light);">Celebrating the Journey</em> (2022) — muzyczna retrospekcja dekady z Bogusławem Kaczmarem, Michałem Kapczukiem i Szymonem Madejem.<br><br>
+      <em style="color:var(--gold-light);">Love Revisited</em> (2014) — duet z Pawłem Tomaszewskim, głębokie interpretacje jazzowych ballad.<br><br>
+      <em style="color:var(--gold-light);">We'll Be Together Again</em> (2010) — debiut z własnym kwintetem, klasyczne standardy jazzowe.
+    </p>
+    <div class="collabs-title">Wybrane współprace</div>
+    <ul class="collab-list">
+      <li>Jan „Ptaszyn" Wróblewski</li>
+      <li>Tomasz Stańko</li>
+      <li>Robert Majewski</li>
+      <li>Henryk Miśkiewicz</li>
+      <li>Bernard Maseli</li>
+      <li>Krzysztof Herdzin</li>
+      <li>Paweł Tomaszewski</li>
+      <li>Bogusław Kaczmar</li>
+      <li>Piotr Schmidt</li>
+      <li>Piotr Kostrzewa</li>
+      <li>Andrzej Dąbrowski</li>
+      <li>Chopin University Big Band</li>
+      <li>Atom String Quartet</li>
+      <li>Aukso</li>
+      <li>Camerata Silesia</li>
+    </ul>
+    <div class="collabs-title" style="margin-top:32px;">Dydaktyka</div>
+    <p style="font-size:0.82rem; line-height:1.8; color:rgba(240,232,216,0.55);">
+      Akademia Sztuk Teatralnych im. St. Wyspiańskiego w Krakowie (od 2018)<br>
+      Instytut Jazzu AM im. K. Szymanowskiego w Katowicach (2012–2019)
+    </p>
+  </div>
+</section>
+
+<!-- KONCERTY (widget: kalendarz Google „KONCERTY PUBLICZNE”) -->
+<section id="concerts">
+  <div class="section-label reveal">Koncerty</div>
+  <h2 class="section-title reveal reveal-delay-1">Najbliższe <em>koncerty</em></h2>
+  <div id="gigs"><p class="gig-loading">Wczytywanie…</p></div>
+</section>
+
+<!-- PHOTO SEPARATOR -->
+<div class="photo-separator">
+  <img src="photo_05.jpg" alt="Wojciech Myrczek" style="object-position: 25% center;">
+  <div class="photo-separator-overlay" style="background: linear-gradient(to left, rgba(10,8,4,0.0) 0%, rgba(10,8,4,0.0) 50%, rgba(10,8,4,0.25) 75%, rgba(10,8,4,0.5) 100%);"></div>
+  <div class="photo-separator-text" style="left:auto; right:60px; text-align:right; max-width:520px; background: rgba(10,8,4,0.35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 32px 36px; border-left: 1px solid rgba(201,168,76,0.2);">
+    <blockquote style="font-size:clamp(1rem,1.8vw,1.5rem); color: var(--white);">„Wojciech Myrczek jawi się jako wytrawny mag jazzowego śpiewu, pogodnej, swingowej wokalistyki zawieszonej gdzieś między elegancją Franka Sinatry a przebojowością Michaela Bublé"</blockquote>
+    <cite style="color: var(--gold-light); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;">Dionizy Piątkowski · jazz.pl</cite>
+  </div>
+</div>
+
+<!-- DISCOGRAPHY -->
+<section id="discography">
+  <div class="section-label reveal">Dyskografia</div>
+  <h2 class="section-title reveal reveal-delay-1">Cztery <em>albumy</em></h2>
+  <div class="albums-grid">
+    <a class="album-card reveal" href="https://open.spotify.com/album/1Q1IlOzLosQtui8Yl2ic03" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+      <div class="album-cover">
+        <div class="album-art"><div class="album-num">I</div></div>
+        <img class="album-cover-img" src="https://www.sjrecords.eu/sites/default/files/styles/okladka_500x500/public/myrczek_schmidt_quintet_-_mlynarski._bynajmniej._front_cover.jpg" alt="Młynarski. Bynajmniej." onerror="this.style.display='none'">
+        <div class="album-overlay">
+          <div class="album-year">2024</div>
+          <div class="album-title">Młynarski.<br>Bynajmniej.</div>
+          <span class="album-listen">Słuchaj na Spotify</span>
+        </div>
+      </div>
+    </a>
+    <a class="album-card reveal reveal-delay-1" href="https://open.spotify.com/album/4rGHpMm7eetsK0WCP9mJiZ" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+      <div class="album-cover">
+        <div class="album-art"><div class="album-num">II</div></div>
+        <img class="album-cover-img" src="https://f4.bcbits.com/img/a4021033098_5.jpg" alt="Celebrating the Journey" onerror="this.style.display='none'">
+        <div class="album-overlay">
+          <div class="album-year">2022</div>
+          <div class="album-title">Celebrating<br>the Journey</div>
+          <span class="album-listen">Słuchaj na Spotify</span>
+        </div>
+      </div>
+    </a>
+    <a class="album-card reveal reveal-delay-2" href="https://open.spotify.com/album/3JOu6o6KefVFTuERdx7lAf" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+      <div class="album-cover">
+        <div class="album-art"><div class="album-num">III</div></div>
+        <img class="album-cover-img" src="https://store.for-tune.pl/image/cache/data/cover/fortune/cover_0038-1429x1419.jpg" alt="Love Revisited" onerror="this.style.display='none'">
+        <div class="album-overlay">
+          <div class="album-year">2014</div>
+          <div class="album-title">Love<br>Revisited</div>
+          <span class="album-listen">Słuchaj na Spotify</span>
+        </div>
+      </div>
+    </a>
+    <div class="album-card reveal reveal-delay-3">
+      <div class="album-cover">
+        <div class="album-art"><div class="album-num">IV</div></div>
+        <img class="album-cover-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEqf7oca_ymB0zHklhKJNktgzSg77VsrhsnMgL5tDizqLbcVQksVaVtNHQHRF24U7Pbur1w3mAYlkEKkjLZ5u27ENGSll60QS5aahbukvQpcQLaGn5gKcSpuLHk_ikxD1aIfw99yXW5rVB/w1200-h630-p-k-no-nu/myrczek1.jpg" alt="We'll Be Together Again" onerror="this.style.display='none'">
+        <div class="album-overlay">
+          <div class="album-year">2010</div>
+          <div class="album-title">We'll Be Together<br>Again</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div class="section-label reveal" style="text-transform:none; letter-spacing:0.05em; font-size:0.72rem; color:var(--muted);">
+      Autor zdjęć:&nbsp;<a href="https://www.instagram.com/michalszperling/" target="_blank" rel="noopener" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.5); padding-bottom:1px; transition:color .3s; font-family:'Montserrat',sans-serif; letter-spacing:0.05em;">Michał Szperling</a>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1"><em>Galeria</em></h2>
+  </div>
+  <div class="gallery-strip" id="galleryStrip">
+    <div class="gallery-item">
+      <img src="photo_04.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="photo_03.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="photo_05.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="photo_01.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="photo_07.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="photo_02.jpg" alt="Wojciech Myrczek">
+      <div class="gallery-item-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC / SPOTIFY -->
+<section id="music">
+  <div class="section-label reveal">Streaming</div>
+  <h2 class="section-title reveal reveal-delay-1">Słuchaj <em>teraz</em></h2>
+  <div class="music-inner">
+    <div class="spotify-wrap reveal">
+      <iframe style="border-radius:0px" src="https://open.spotify.com/embed/playlist/4JOK1lb1Wq0ZcAk6sL2f3X?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="spotify-wrap reveal reveal-delay-1">
+      <iframe style="border-radius:0px" src="https://open.spotify.com/embed/album/1Q1IlOzLosQtui8Yl2ic03?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="spotify-wrap reveal reveal-delay-2">
+      <iframe style="border-radius:0px" src="https://open.spotify.com/embed/album/4rGHpMm7eetsK0WCP9mJiZ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-label reveal">Wideo</div>
+  <h2 class="section-title reveal reveal-delay-1">Muzyka & <em>słowo</em></h2>
+  <div class="video-grid">
+
+    <a class="video-card reveal" href="https://youtu.be/aAZbRwnMEhY" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/aAZbRwnMEhY/maxresdefault.jpg" alt="In a Mellow Tone">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">In a Mellow Tone</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/iKE17xJpGcc" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/iKE17xJpGcc/maxresdefault.jpg" alt="Lush Life">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">Lush Life (feat. Bogusław Kaczmar)</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/QsvL_Qu_u9g" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/QsvL_Qu_u9g/maxresdefault.jpg" alt="The Very First Man">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">The Very First Man — Live Looping Session</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/6_2GD4rb-QE" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/6_2GD4rb-QE/maxresdefault.jpg" alt="Happily Ever After">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">Happily Ever After</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/OoZcPMq35FQ" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/OoZcPMq35FQ/maxresdefault.jpg" alt="Body and Soul"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="video-fallback" style="display:none"><span class="video-fallback-letter">♪</span></div>
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">Body and Soul</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/c_L1hY0FK9I" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/c_L1hY0FK9I/maxresdefault.jpg" alt="My One And Only Love">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">My One And Only Love</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://youtu.be/J0whf32wTCo" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/J0whf32wTCo/maxresdefault.jpg" alt="Bynajmniej">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">Bynajmniej</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://www.youtube.com/watch?v=xmYHFIMl6Ps" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/xmYHFIMl6Ps/maxresdefault.jpg" alt="W Małym Kinie">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">W Małym Kinie</span>
+        <span class="video-yt-label">YouTube</span>
+      </div>
+    </a>
+
+    <a class="video-card reveal" href="https://www.youtube.com/watch?v=4yQ4thh2Thw" target="_blank" rel="noopener">
+      <img class="video-thumb" src="https://img.youtube.com/vi/4yQ4thh2Thw/maxresdefault.jpg" alt="Podcast">
+      <div class="video-card-overlay">
+        <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <span class="video-title">Od przypadkowej lekcji do najlepszego wokalisty jazzowego w Polsce</span>
+        <span class="video-yt-label">Podcast · YouTube</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FESTIVALS -->
+<section id="festivals">
+  <div class="section-label reveal">Wybrane występy</div>
+  <h2 class="section-title reveal reveal-delay-1">Sceny <em>świata</em></h2>
+  <div class="festivals-inner reveal reveal-delay-2">
+    <div class="festival-item">
+      <div class="festival-name">Montreux Jazz Festival</div>
+      <div class="festival-location">Szwajcaria</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">The Hague Jazz</div>
+      <div class="festival-location">Holandia</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Brisbane Jazz Festival</div>
+      <div class="festival-location">Australia</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Sofia Jazz Peak Festival</div>
+      <div class="festival-location">Bułgaria</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Celje International Jazz Festival</div>
+      <div class="festival-location">Słowenia</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Bielska Zadymka Jazzowa</div>
+      <div class="festival-location">Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Jazz nad Odrą</div>
+      <div class="festival-location">Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Kolory Polski</div>
+      <div class="festival-location">Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">NOSPR Katowice</div>
+      <div class="festival-location">Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">NFM — Narodowe Forum Muzyki</div>
+      <div class="festival-location">Wrocław, Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Hudson Studios</div>
+      <div class="festival-location">Nowy Jork, USA</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Opus Jazz Club</div>
+      <div class="festival-location">Budapeszt, Węgry</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Institut Finlandais</div>
+      <div class="festival-location">Paryż, Francja</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Teatr Roma</div>
+      <div class="festival-location">Warszawa, Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Filharmonia Sinfonia Baltica</div>
+      <div class="festival-location">Polska</div>
+    </div>
+    <div class="festival-item">
+      <div class="festival-name">Festiwal Pianistów Jazzowych</div>
+      <div class="festival-location">Kalisz, Polska</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label" style="justify-content:center;">Kontakt</div>
+  <h2 class="section-title" style="text-align:center; margin-bottom:64px;">Zaproszenia<br>& <em>Booking</em></h2>
+
+  <div class="contact-minimal reveal">
+    <div class="contact-simple">
+      <p class="contact-name">Krystyna Gierłowska</p>
+      <p class="contact-org">Aurea Porta Foundation</p>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-simple">
+      <a href="tel:+48606880830" class="contact-item-link">+48 606 880 830</a>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-simple">
+      <a href="mailto:myrczek.office@gmail.com" class="contact-item-link">myrczek.office@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="press-kit-row reveal" style="position:relative; z-index:1; text-align:center; margin-bottom:52px;">
+    <p style="font-size:0.58rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--muted); margin-bottom:18px;">Dla organizatorów</p>
+    <a href="https://drive.google.com/drive/folders/1zJhDMqpW6BSVBO6IKwX1rshKvJ6ZotFd" target="_blank" rel="noopener" class="btn-outline" style="display:inline-flex; align-items:center; gap:10px; letter-spacing:0.2em;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Materiały prasowe
+    </a>
+  </div>
+
+  <div class="contact-social-row reveal reveal-delay-1">
+    <a href="https://www.facebook.com/myrcz/" target="_blank" rel="noopener" class="social-link" title="Facebook">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/myrcz_music/" target="_blank" rel="noopener" class="social-link" title="Instagram">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <rect x="16.8" y="5.8" width="1.4" height="1.4" rx="0.3" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/channel/UCPqUk4sIizwD2QzNYMDUQ6w" target="_blank" rel="noopener" class="social-link" title="YouTube">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.2 5 12 5 12 5s-4.2 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.9C6.8 19 12 19 12 19s4.2 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM10 15V9l5.2 3L10 15z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#">Wojciech Myrczek</a>
+  <p>© 2026 Wojciech Myrczek · All Rights Reserved</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev">‹</button>
+  <img src="" id="lbImg" alt="">
+  <button class="lightbox-nav lightbox-next" id="lbNext">›</button>
+  <span class="lightbox-counter" id="lbCounter"></span>
+</div>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    mobileMenu.style.display = open ? 'flex' : 'none';
+    requestAnimationFrame(() => { if (open) mobileMenu.classList.add('open'); });
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.style.display = 'none';
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  // Gallery drag scroll
+  const strip = document.getElementById('galleryStrip');
+  let isDown = false, dragMoved = false, startX, scrollLeft;
+  strip.addEventListener('mousedown', e => { isDown = true; dragMoved = false; strip.classList.add('active'); startX = e.pageX - strip.offsetLeft; scrollLeft = strip.scrollLeft; });
+  strip.addEventListener('mouseleave', () => { isDown = false; });
+  strip.addEventListener('mouseup', () => { isDown = false; });
+  strip.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); dragMoved = true; const x = e.pageX - strip.offsetLeft; const walk = (x - startX) * 1.5; strip.scrollLeft = scrollLeft - walk; });
+
+  // Lightbox
+  const photos = ['photo_04.jpg','photo_03.jpg','photo_05.jpg','photo_01.jpg','photo_07.jpg','photo_02.jpg'];
+  let currentIdx = 0;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    lbImg.src = photos[idx];
+    lbCounter.textContent = (idx + 1) + ' / ' + photos.length;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function navigate(dir) {
+    currentIdx = (currentIdx + dir + photos.length) % photos.length;
+    lbImg.src = photos[currentIdx];
+    lbCounter.textContent = (currentIdx + 1) + ' / ' + photos.length;
+  }
+
+  document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.addEventListener('click', () => { if (!dragMoved) openLightbox(i); dragMoved = false; });
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
+  document.getElementById('lbNext').addEventListener('click', () => navigate(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Album covers via Spotify oEmbed
+  const albums = [
+    { id: 'cover-1', spotifyUrl: 'https://open.spotify.com/album/1Q1IlOzLosQtui8Yl2ic03' },
+    { id: 'cover-2', spotifyUrl: 'https://open.spotify.com/album/4rGHpMm7eetsK0WCP9mJiZ' },
+  ];
+  albums.forEach(({ id, spotifyUrl }) => {
+    fetch(`https://open.spotify.com/oembed?url=${encodeURIComponent(spotifyUrl)}`)
+      .then(r => r.json())
+      .then(data => {
+        const img = document.getElementById(id);
+        if (img && data.thumbnail_url) { img.src = data.thumbnail_url; }
+      })
+      .catch(() => {});
+  });
+</script>
+<!-- ===== KONCERTY widget (start) ===== -->
+<script>
+(function () {
+  // ============ USTAWIENIA ============
+  // Klucz API z Google Cloud (ograniczony do myrczek.com i do Google Calendar API)
+  var API_KEY = 'AIzaSyB_eiR59HJtY74v6RQnA_Lgw8NalsQwDng';
+  var CALENDAR_ID = 'ce738138ab9576f222a610dd684a39f2cf4f4e21b5fc6b4bd35888a1f10fd266@group.calendar.google.com';
+  var VISIBLE = 6;      // ile koncertów widać od razu
+  var MAX_EVENTS = 30;  // ile maksymalnie pobrać
+  // ====================================
+
+  var params = new URLSearchParams(location.search);
+  // Na stronie EN: document.documentElement.lang === 'en' wystarczy (jest w myrczek_en.html)
+  var LANG = params.get('lang') === 'en' || document.documentElement.lang === 'en' ? 'en' : 'pl';
+  var DEMO = params.has('demo') || API_KEY.indexOf('WKLEJ') === 0;
+  var CACHE_KEY = 'myrczek_koncerty_v1';
+
+  var T = {
+    pl: { label: 'Koncerty', title: 'Najbliższe <em>koncerty</em>', loading: 'Wczytywanie…',
+          tickets: 'Bilety', info: 'Organizator', map: 'mapa', more: 'Wszystkie terminy',
+          empty: 'Nowe terminy wkrótce. Zaproszenia i booking: <a href="mailto:myrczek.office@gmail.com">myrczek.office@gmail.com</a>',
+          locale: 'pl-PL' },
+    en: { label: 'Concerts', title: 'Upcoming <em>concerts</em>', loading: 'Loading…',
+          tickets: 'Tickets', info: 'Organiser', map: 'map', more: 'All dates',
+          empty: 'New dates coming soon. Booking: <a href="mailto:myrczek.office@gmail.com">myrczek.office@gmail.com</a>',
+          locale: 'en-GB' }
+  }[LANG];
+
+  document.querySelectorAll('#concerts [data-i18n]').forEach(function (e) { e.textContent = T[e.dataset.i18n]; });
+  document.querySelectorAll('#concerts [data-i18n-html]').forEach(function (e) { e.innerHTML = T[e.dataset.i18nHtml]; });
+
+  var box = document.getElementById('gigs');
+  var srcInfo = document.getElementById('srcInfo');
+  function setInfo(t) { if (srcInfo) srcInfo.textContent = t; }
+
+  // ---------- przetwarzanie wydarzeń z Google ----------
+
+  // Opis z Google bywa w HTML — zamiana na czysty tekst (bez wykonywania kodu)
+  function descToText(html) {
+    if (!html) return '';
+    var doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
+    doc.querySelectorAll('a[href]').forEach(function (a) { a.replaceWith(doc.createTextNode(a.getAttribute('href'))); });
+    doc.querySelectorAll('br').forEach(function (b) { b.replaceWith(doc.createTextNode('\n')); });
+    doc.querySelectorAll('p,div,li').forEach(function (b) { b.appendChild(doc.createTextNode('\n')); });
+    return (doc.body.textContent || '')
+      .replace(/ /g, ' ')
+      .replace(/https:\/\/www\.google\.com\/url\?q=([^&\s]+)\S*/g, function (m, u) {
+        try { return decodeURIComponent(u); } catch (e) { return u; }
+      });
+  }
+
+  // Linie „WWW…:” z opisu → nadpisania
+  function wwwLines(text) {
+    var map = { '': 'title', en: 'title_en', miejsce: 'place', place: 'place',
+                godzina: 'time', time: 'time', bilety: 'tickets', tickets: 'tickets',
+                organizator: 'info', organizer: 'info', info: 'info' };
+    var out = {};
+    text.split('\n').forEach(function (l) {
+      var m = l.match(/^\s*WWW(?:\s+(EN|miejsce|place|godzina|time|bilety|tickets|organizator|organizer|info))?\s*:\s*(.+?)\s*$/i);
+      if (m) { var k = map[(m[1] || '').toLowerCase()]; if (!(k in out)) out[k] = m[2]; }
+    });
+    return out;
+  }
+
+  function warsawParts(iso) {
+    var f = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Warsaw', year: 'numeric', month: '2-digit',
+      day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+    var p = {}; f.formatToParts(new Date(iso)).forEach(function (x) { p[x.type] = x.value; });
+    return { date: p.year + '-' + p.month + '-' + p.day, time: p.hour + ':' + p.minute };
+  }
+
+  function clip(s) { return String(s).replace(/\s+/g, ' ').trim().slice(0, 140); }
+
+  function toPublic(ev) {
+    var summary = (ev.summary || '').trim();
+    var desc = descToText(ev.description);
+    var www = wwwLines(desc);
+    if (!summary || ev.status === 'cancelled' || /^\s*(\?|ODWO[ŁL]ANY)/i.test(summary)) return null;
+    if (www.title && www.title.toLowerCase() === 'ukryj') return null;
+
+    var date, time = '';
+    if (ev.start && ev.start.date) { date = ev.start.date; }
+    else if (ev.start && ev.start.dateTime) { var w = warsawParts(ev.start.dateTime); date = w.date; time = w.time; }
+    else return null;
+    var tm = www.time && www.time.match(/^(\d{1,2})[:.](\d{2})$/);
+    if (tm) time = ('0' + tm[1]).slice(-2) + ':' + tm[2];
+
+    var location = (ev.location || '').replace(/\n/g, ', ').replace(/,?\s*(Polska|Poland)\s*$/i, '').trim();
+    // Mapa tylko dla wydarzeń otwartych i tylko przy pełnym adresie (z numerem budynku)
+    var closed = /zamkni[eę]t|private event/i.test(summary + ' ' + (www.title || ''));
+    var mapOk = !closed && /\d/.test(location);
+    var tickets = null;
+    if (www.tickets && /^https?:\/\/\S+$/i.test(www.tickets)) tickets = www.tickets;
+
+    return {
+      date: date, time: time,
+      title: clip(www.title || summary),
+      title_en: www.title_en ? clip(www.title_en) : null,
+      place: www.place ? clip(www.place) : (location ? clip(location) : null),
+      map: mapOk ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(location) : null,
+      tickets: tickets,
+      info: (www.info && /^https?:\/\/\S+$/i.test(www.info)) ? www.info : null
+    };
+  }
+
+  // ---------- wyświetlanie ----------
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : null; }
+
+  function render(events) {
+    var today = warsawParts(new Date().toISOString()).date;
+    events = events.filter(function (g) { return g.date >= today; });
+    box.innerHTML = '';
+    if (!events.length) { var p = el('p', 'gig-empty'); p.innerHTML = T.empty; box.appendChild(p); return; }
+
+    var month = new Intl.DateTimeFormat(T.locale, { month: 'short' });
+    var weekday = new Intl.DateTimeFormat(T.locale, { weekday: 'long' });
+    var thisYear = today.slice(0, 4);
+    var ul = el('ul', 'gig-list');
+
+    events.forEach(function (g, i) {
+      var p = g.date.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2], 12);
+      var li = el('li', 'gig');
+      if (i >= VISIBLE) li.hidden = true;
+
+      var dateBox = el('div', 'gig-date');
+      dateBox.appendChild(el('div', 'gig-day', String(d.getDate())));
+      dateBox.appendChild(el('div', 'gig-month', month.format(d).replace('.', '')));
+      if (p[0] !== thisYear) dateBox.appendChild(el('div', 'gig-year', p[0]));
+
+      var info = el('div');
+      info.appendChild(el('div', 'gig-title', (LANG === 'en' && g.title_en) ? g.title_en : g.title));
+      var meta = el('div', 'gig-meta');
+      var bits = [weekday.format(d) + (g.time ? ', ' + g.time : '')];
+      if (g.place) bits.push(g.place);
+      bits.forEach(function (b, k) {
+        if (k) meta.appendChild(el('span', 'sep', '·'));
+        meta.appendChild(document.createTextNode(b));
+      });
+      if (safeUrl(g.map)) {
+        meta.appendChild(el('span', 'sep', '·'));
+        var m = el('a', null, T.map); m.href = g.map; m.target = '_blank'; m.rel = 'noopener';
+        meta.appendChild(m);
+      }
+      info.appendChild(meta);
+
+      var actions = el('div', 'gig-actions');
+      if (safeUrl(g.tickets)) {
+        var a = el('a', 'gig-btn', T.tickets); a.href = g.tickets; a.target = '_blank'; a.rel = 'noopener';
+        actions.appendChild(a);
+      }
+      if (safeUrl(g.info) && g.info !== g.tickets) {
+        var o = el('a', 'gig-btn gig-btn-ghost', T.info); o.href = g.info; o.target = '_blank'; o.rel = 'noopener';
+        actions.appendChild(o);
+      }
+
+      li.appendChild(dateBox); li.appendChild(info); li.appendChild(actions);
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+
+    if (events.length > VISIBLE) {
+      var btn = el('button', 'gig-more', T.more);
+      btn.addEventListener('click', function () {
+        ul.querySelectorAll('.gig[hidden]').forEach(function (x) { x.hidden = false; });
+        btn.remove();
+      });
+      box.appendChild(btn);
+    }
+  }
+
+  // ---------- kopia awaryjna w przeglądarce ----------
+  function saveCopy(events) { try { localStorage.setItem(CACHE_KEY, JSON.stringify(events)); } catch (e) {} }
+  function loadCopy() { try { return JSON.parse(localStorage.getItem(CACHE_KEY)) || null; } catch (e) { return null; } }
+
+  // ---------- start ----------
+  if (DEMO) {
+    setInfo('demo' + (API_KEY.indexOf('WKLEJ') === 0 ? ' (brak klucza API)' : ''));
+    var dd = function (n) { var x = new Date(); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); };
+    render([
+      { date: dd(5), time: '19:00', title: 'Starsi Panowie', title_en: 'Starsi Panowie — songs of Przybora & Wasowski', place: 'Elektrownia, Radom', map: 'https://www.google.com/maps/search/?api=1&query=Elektrownia%20Radom', tickets: 'https://example.com' },
+      { date: dd(12), time: '', title: 'Młynarski. Bynajmniej.', title_en: null, place: 'Teatr Ziemi Rybnickiej, Rybnik', map: 'https://www.google.com/maps/search/?api=1&query=Teatr%20Ziemi%20Rybnickiej', tickets: null },
+      { date: dd(30), time: '20:00', title: 'Big Band Akademii Muzycznej', title_en: 'Lodz Academy of Music Big Band', place: 'Sala Koncertowa AM, Łódź', map: null, tickets: 'https://example.com' },
+      { date: dd(48), time: '17:00', title: 'Koncert świąteczny', title_en: 'Christmas concert', place: 'Teatr Capitol, Warszawa', map: null, tickets: null }
+    ]);
+    return;
+  }
+
+  // dzień wstecz, żeby trwające/dzisiejsze koncerty też były widoczne
+  var timeMin = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
+  var url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(CALENDAR_ID) + '/events'
+    + '?key=' + encodeURIComponent(API_KEY)
+    + '&singleEvents=true&orderBy=startTime&maxResults=' + MAX_EVENTS
+    + '&timeMin=' + encodeURIComponent(timeMin)
+    + '&fields=' + encodeURIComponent('items(summary,description,location,start,status)');
+
+  fetch(url)
+    .then(function (r) {
+      if (r.ok) return r.json();
+      return r.json().catch(function () { return {}; }).then(function (j) {
+        var why = j && j.error && (j.error.message || j.error.status);
+        throw new Error('HTTP ' + r.status + (why ? ': ' + why : ''));
+      });
+    })
+    .then(function (data) {
+      var events = (data.items || []).map(toPublic).filter(Boolean);
+      saveCopy(events);
+      setInfo('Google · ' + events.length + ' wyd.');
+      render(events);
+    })
+    .catch(function (err) {
+      var copy = loadCopy();
+      setInfo('błąd (' + err.message + ')' + (copy ? ' — pokazuję ostatnią kopię' : ''));
+      render(copy || []);
+    });
+})();
+</script>
+<!-- ===== KONCERTY widget (end) ===== -->
+</body>
+</html>

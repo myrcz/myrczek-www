@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wojciech Myrczek</title>
+<meta name="description" content="Wojciech Myrczek — wokalista jazzowy. Posłuchaj i śledź.">
+
+<!-- Open Graph: ładny podgląd przy udostępnianiu linku -->
+<meta property="og:title" content="Wojciech Myrczek">
+<meta property="og:description" content="Wokalista jazzowy — posłuchaj i śledź.">
+<meta property="og:image" content="https://myrczek.com/m/photo_01.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg2:#16161a;
+    --gold:#c9a84c;
+    --gold-light:#e2c579;
+    --text:#eae7df;
+    --muted:#a4a29b;
+    --line:rgba(201,168,76,.28);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(900px 480px at 50% -8%, rgba(201,168,76,.10), transparent 62%),
+      var(--bg);
+    color:var(--text);
+    font-family:"Montserrat",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-weight:300;
+    display:flex;flex-direction:column;align-items:center;
+    padding:26px 20px 40px;
+  }
+  .lang{
+    align-self:flex-end;display:flex;gap:2px;
+    border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:14px;
+  }
+  .lang button{
+    background:transparent;border:none;color:var(--muted);
+    font:inherit;font-size:.74rem;letter-spacing:.12em;font-weight:500;
+    padding:5px 12px;border-radius:999px;cursor:pointer;transition:.18s;
+  }
+  .lang button.active{background:var(--gold);color:#20180a}
+
+  .card{
+    width:100%;max-width:420px;text-align:center;
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .portrait{
+    width:150px;height:150px;border-radius:50%;object-fit:cover;
+    object-position:center 12%;
+    margin:0 auto 20px;display:block;
+    border:1px solid var(--gold);
+    box-shadow:0 0 0 6px rgba(201,168,76,.08), 0 18px 40px rgba(0,0,0,.5);
+  }
+  h1{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:600;font-size:2.35rem;line-height:1.05;margin:0;
+    letter-spacing:.5px;color:var(--text);
+  }
+  .role{
+    color:var(--gold-light);font-size:.78rem;letter-spacing:.28em;
+    text-transform:uppercase;font-weight:500;margin:10px 0 0;
+  }
+  .thanks{
+    color:var(--muted);font-size:.95rem;line-height:1.55;
+    margin:20px auto 4px;max-width:34ch;
+  }
+
+  .links{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+  .btn{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 18px;border-radius:12px;
+    text-decoration:none;font-weight:500;font-size:.98rem;
+    border:1px solid var(--line);color:var(--text);
+    background:rgba(255,255,255,.02);
+    transition:transform .1s ease, border-color .18s, background .18s;
+  }
+  .btn:hover{border-color:var(--gold);background:rgba(201,168,76,.06)}
+  .btn:active{transform:translateY(1px)}
+  .btn .ico{width:24px;height:24px;flex:0 0 24px;color:var(--gold-light)}
+  .btn .txt{flex:1;text-align:left}
+  .btn .arrow{color:var(--muted);font-size:1.1rem;transition:color .18s, transform .18s}
+  .btn:hover .arrow{color:var(--gold);transform:translateX(2px)}
+
+  /* primary action */
+  .btn.primary{
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    border-color:var(--gold);color:#1c1406;font-weight:600;
+    box-shadow:0 10px 26px rgba(201,168,76,.22);
+  }
+  .btn.primary .ico{color:#1c1406}
+  .btn.primary .arrow{color:#5a4410}
+  .btn.primary:hover{background:linear-gradient(180deg,#eccf88,var(--gold-light))}
+
+  footer{margin-top:30px;color:var(--muted);font-size:.72rem;letter-spacing:.06em}
+  footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+
+  [hidden]{display:none!important}
+  @media(prefers-reduced-motion:reduce){.card{animation:none}.btn,.arrow{transition:none}}
+</style>
+</head>
+<body>
+
+  <div class="lang" role="group" aria-label="Język / Language">
+    <button id="btn-pl" class="active" aria-pressed="true">PL</button>
+    <button id="btn-en" aria-pressed="false">EN</button>
+  </div>
+
+  <main class="card">
+    <img class="portrait" src="photo_01.jpg" alt="Wojciech Myrczek">
+
+    <h1>Wojciech Myrczek</h1>
+    <p class="role" data-pl="Wokalista jazzowy" data-en="Jazz vocalist">Wokalista jazzowy</p>
+
+    <p class="thanks"
+       data-pl="Dziękuję, że słuchasz. Zostańmy w kontakcie."
+       data-en="Thank you for listening. Let&rsquo;s stay in touch.">
+      Dziękuję, że słuchasz. Zostańmy w kontakcie.
+    </p>
+
+    <nav class="links">
+      <!-- GŁÓWNA AKCJA — wstaw link do profilu artysty na Spotify -->
+      <a class="btn primary" href="https://open.spotify.com/artist/2V0wWmZlOYYnfR6RyZoXZK" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 14.4a.62.62 0 01-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 11-.28-1.22c3.81-.87 7.09-.5 9.72 1.11.3.18.39.57.21.86zm1.23-2.74a.78.78 0 01-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 11-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33.37.23.49.71.25 1.07zm.1-2.85C14.8 8.96 9.5 8.78 6.42 9.71a.93.93 0 11-.54-1.79c3.53-1.07 9.39-.86 13.09 1.34a.94.94 0 01-.96 1.61z"/></svg>
+        </span>
+        <span class="txt">Spotify</span>
+        <span class="arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+
+      <a class="btn" href="https://instagram.com/myrcz_music/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="txt">Instagram</span>
+        <span class="arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+
+      <a class="btn" href="https://facebook.com/myrcz/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg>
+        </span>
+        <span class="txt">Facebook</span>
+        <span class="arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+
+      <!-- wstaw adres swojego kanału YouTube -->
+      <a class="btn" href="https://www.youtube.com/@WojciechMyrczek" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.41-4.73a2.5 2.5 0 00-1.76-1.77C19.29 5.1 12 5.1 12 5.1s-7.29 0-8.83.4a2.5 2.5 0 00-1.76 1.77C1 8.8 1 12 1 12s0 3.2.41 4.73a2.5 2.5 0 001.76 1.77c1.54.4 8.83.4 8.83.4s7.29 0 8.83-.4a2.5 2.5 0 001.76-1.77C23 15.2 23 12 23 12zm-13 3.2V8.8l5.5 3.2-5.5 3.2z"/></svg>
+        </span>
+        <span class="txt">YouTube</span>
+        <span class="arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+
+      <a class="btn" href="https://myrczek.com/m/myrczek.html" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></svg>
+        </span>
+        <span class="txt" data-pl="Strona internetowa" data-en="Website">Strona internetowa</span>
+        <span class="arrow" aria-hidden="true">&rsaquo;</span>
+      </a>
+    </nav>
+
+    <footer>&copy; <span id="year"></span> Wojciech Myrczek &middot; <a href="https://myrczek.com/m/myrczek.html">myrczek.com</a></footer>
+  </main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var btnPl = document.getElementById('btn-pl');
+  var btnEn = document.getElementById('btn-en');
+
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-'+lang+']').forEach(function(el){
+      el.textContent = el.getAttribute('data-'+lang);
+    });
+    var pl = lang === 'pl';
+    btnPl.classList.toggle('active', pl);  btnPl.setAttribute('aria-pressed', pl);
+    btnEn.classList.toggle('active', !pl); btnEn.setAttribute('aria-pressed', !pl);
+  }
+
+  btnPl.addEventListener('click', function(){ setLang('pl'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+
+  if((navigator.language || '').slice(0,2).toLowerCase() === 'en'){ setLang('en'); }
+</script>
+</body>
+</html>
