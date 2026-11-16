@@ -30,31 +30,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
   }
-
-  /* CUSTOM CURSOR */
-  .cursor {
-    position: fixed; top: 0; left: 0;
-    width: 8px; height: 8px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width .2s, height .2s, background .2s;
-  }
-  .cursor-ring {
-    position: fixed; top: 0; left: 0;
-    width: 36px; height: 36px;
-    border: 1px solid rgba(201,168,76,0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: transform .12s ease, width .3s, height .3s;
-  }
-  body:hover .cursor { width: 8px; height: 8px; }
 
   /* NAV */
   nav {
@@ -1264,10 +1240,6 @@
   .reveal-delay-2 { transition-delay: 0.3s; }
   .reveal-delay-3 { transition-delay: 0.45s; }
 
-  @media (hover: none), (max-width: 1024px) {
-    .cursor, .cursor-ring { display: none !important; }
-    body { cursor: auto; }
-  }
   @media (max-width: 1024px) {
     nav { padding: 20px 30px; }
     section { padding: 80px 30px; }
@@ -1363,8 +1335,6 @@
 <body>
 
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -1878,19 +1848,6 @@
       document.body.style.overflow = '';
     });
   });
-
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animCursor() {
-    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animCursor);
-  }
-  animCursor();
 
   // Gallery drag scroll
   const strip = document.getElementById('galleryStrip');
