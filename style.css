@@ -441,6 +441,10 @@ section { padding: 120px 60px; }
 }
 .ticker-sep { color: rgba(10,8,4,0.4); }
 @media (max-width: 600px) {
+  #festivals { padding: 60px 20px; }
+  .festival-item { padding: 18px 16px; }
+  .festival-name { font-size: 0.95rem; overflow-wrap: break-word; }
+  .festival-location { font-size: 0.52rem; letter-spacing: 0.12em; overflow-wrap: anywhere; }
   .ticker-item { font-size: 0.65rem; padding: 0 28px; }
 }
 
@@ -1237,7 +1241,9 @@ footer p {
   .music-inner { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }
   .video-grid .video-card:first-child { grid-column: span 1; aspect-ratio: 16/9; }
-  .festival-item { flex: 0 0 50%; }
+  .festival-item { flex: 0 0 50%; min-width: 0; }
+  .festival-item:nth-child(4n) { border-right: 1px solid rgba(201,168,76,0.1); }
+  .festival-item:nth-child(2n) { border-right: none; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   #hero { padding: 0 30px 70px; }
