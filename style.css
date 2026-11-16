@@ -441,10 +441,6 @@ section { padding: 120px 60px; }
 }
 .ticker-sep { color: rgba(10,8,4,0.4); }
 @media (max-width: 600px) {
-  #festivals { padding: 60px 20px; }
-  .festival-item { padding: 18px 16px; }
-  .festival-name { font-size: 0.95rem; overflow-wrap: break-word; }
-  .festival-location { font-size: 0.52rem; letter-spacing: 0.12em; overflow-wrap: anywhere; }
   .ticker-item { font-size: 0.65rem; padding: 0 28px; }
 }
 
@@ -1255,6 +1251,10 @@ footer p {
   .gallery-credit { padding-right: 30px; }
 }
 @media (max-width: 600px) {
+  #festivals { padding: 60px 20px; }
+  .festival-item { padding: 18px 16px; }
+  .festival-name { font-size: 0.95rem; overflow-wrap: break-word; }
+  .festival-location { font-size: 0.52rem; letter-spacing: 0.12em; overflow-wrap: anywhere; }
   .hero-name { font-size: clamp(52px, 14vw, 90px); }
   .albums-grid { grid-template-columns: 1fr; }
   .contact-row { flex-direction: column; gap: 4px; }
