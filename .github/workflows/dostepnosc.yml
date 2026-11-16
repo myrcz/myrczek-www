@@ -25,8 +25,8 @@ jobs:
         run: |
           fail=""
           for url in \
-            "https://myrczek.com/m/myrczek.html" \
-            "https://myrczek.com/m/myrczek_en.html" \
+            "https://myrczek.com/" \
+            "https://myrczek.com/en/" \
             "https://myrczek.com/m/qrlanding.html"; do
             ok=0
             for try in 1 2 3; do
