@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Słuchaj / Listen — Wojciech Myrczek</title>
+<meta name="description" content="Wojciech Myrczek w serwisach streamingowych: Spotify, Apple Music, YouTube Music, Tidal. Listen to Wojciech Myrczek on your favourite streaming service.">
+<meta property="og:title" content="Wojciech Myrczek — Słuchaj / Listen">
+<meta property="og:description" content="Spotify · Apple Music · YouTube Music · Tidal">
+<meta property="og:image" content="https://myrczek.com/m/listen_foto.jpg">
+<meta name="theme-color" content="#0a0804">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     EDYTUJ tu:
+     1. Linki do profili — w sekcji .links (adres w href="...")
+     2. Zdjęcie — plik listen_foto.jpg (fot. Michał Szperling) obok tego pliku
+     ============================================================ -->
+
+<style>
+:root{
+  --bg: #0a0804;
+  --bg2: #100e09;
+  --gold: #c9a84c;
+  --gold-light: #e8cc80;
+  --cream: #f0e8d8;
+  --muted: #7a7060;
+  --white: #faf8f3;
+  --line: rgba(201,168,76,0.22);
+}
+
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body{ background: var(--bg); }
+
+body{
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page{
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- HERO: zdjęcie ---------- */
+.hero{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 62vh;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+.hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  display: block;
+}
+.hero::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(16,14,9,0.85) 88%, var(--bg2) 100%);
+}
+
+/* ---------- TREŚĆ ---------- */
+.body-section{
+  padding: 0 26px 30px;
+  margin-top: -64px;
+  position: relative;
+  z-index: 1;
+}
+
+.label{
+  font-size: 0.58rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 12px;
+}
+.label::after{ content: ""; width: 40px; height: 1px; background: var(--gold); opacity: .5; }
+
+h1{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.6rem, 9vw, 3.4rem);
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+h1 em{ font-style: italic; color: var(--gold-light); }
+
+.lead{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(240,232,216,0.7);
+  margin-bottom: 26px;
+  line-height: 1.35;
+}
+.lead span{ color: var(--muted); }
+
+.links{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link-card{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--cream);
+  transition: border-color .3s, background .3s, transform .2s;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: rise .6s ease forwards;
+}
+.link-card:hover{
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.07);
+  transform: translateY(-2px);
+}
+.link-card:nth-child(1){ animation-delay: .05s; }
+.link-card:nth-child(2){ animation-delay: .1s; }
+.link-card:nth-child(3){ animation-delay: .15s; }
+.link-card:nth-child(4){ animation-delay: .2s; }
+.link-card:nth-child(5){ animation-delay: .25s; }
+
+@keyframes rise{ to{ opacity: 1; transform: translateY(0); } }
+
+.link-icon{
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.6);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .3s;
+}
+.link-icon svg{ width: 11px; height: 11px; fill: var(--gold-light); margin-left: 2px; }
+.link-card:hover .link-icon{ background: rgba(201,168,76,0.15); }
+
+.link-label{
+  flex: 1;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.link-arrow{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  transition: color .3s, transform .3s;
+}
+.link-card:hover .link-arrow{ color: var(--gold); transform: translateX(3px); }
+
+.home{
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.35);
+  padding-bottom: 2px;
+  transition: color .3s, border-color .3s;
+}
+.home:hover{ color: var(--white); border-color: var(--gold); }
+
+footer{
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Komputer: zdjęcie po lewej, linki po prawej ---------- */
+@media (min-width: 720px){
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    position: relative;
+  }
+  body::before{
+    content: "";
+    position: fixed;
+    inset: -60px;
+    background-image: url('listen_foto.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    filter: blur(70px) brightness(0.22) saturate(0.8);
+    z-index: 0;
+  }
+  .page{
+    position: relative;
+    z-index: 1;
+    min-height: auto;
+    max-width: 900px;
+    width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+    border: 1px solid rgba(201,168,76,0.18);
+    box-shadow: 0 60px 140px rgba(0,0,0,0.7);
+  }
+  .hero{
+    flex: 0 0 44%;
+    width: 44%;
+    aspect-ratio: auto;
+    max-height: none;
+    min-height: 560px;
+  }
+  .hero::after{
+    background: linear-gradient(to right, transparent 65%, rgba(16,14,9,0.6) 90%, var(--bg2) 100%);
+  }
+  .body-section{
+    flex: 1;
+    margin-top: 0;
+    padding: 56px 56px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h1{ font-size: 3.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .link-card{ animation: none; opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="hero">
+    <img src="listen_foto.jpg" alt="Wojciech Myrczek, fot. Michał Szperling">
+  </div>
+
+  <div class="body-section">
+
+    <div class="label">Słuchaj · Listen</div>
+    <h1>Wojciech<br><em>Myrczek</em></h1>
+    <p class="lead">Wybierz swój serwis.<br><span>Choose your streaming service.</span></p>
+
+    <div class="links">
+      <a class="link-card" href="https://open.spotify.com/artist/2V0wWmZlOYYnfR6RyZoXZK" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Spotify</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="https://music.apple.com/pl/artist/wojciech-myrczek/1300096094" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Apple Music</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="https://music.youtube.com/channel/UCnnRZGlsIxF7hmufVK-HB8A" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">YouTube Music</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="https://tidal.com/artist/17546946" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Tidal</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <div><a class="home" href="myrczek.html">myrczek.com</a></div>
+
+    <footer>© 2026 Wojciech Myrczek · fot. Michał Szperling</footer>
+
+  </div>
+</div>
+
+</body>
+</html>
