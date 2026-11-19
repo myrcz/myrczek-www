@@ -1305,8 +1305,7 @@ footer p {
   font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; white-space: nowrap;
   transition: border-color .3s, color .3s, background .3s; }
 .gig-free { display: inline-block; padding: 11px 26px; border-top: 1px solid rgba(201,168,76,0.35); border-bottom: 1px solid rgba(201,168,76,0.35);
-  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; letter-spacing: 0.04em; line-height: 1;
-  color: var(--gold-light); white-space: nowrap; }
+  font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-light); white-space: nowrap; }
 .gig-btn-ghost { border-color: rgba(201,168,76,0.22); color: var(--muted); }
 .gig-btn:hover { border-color: var(--gold); color: var(--bg); background: var(--gold); }
 
@@ -1326,7 +1325,7 @@ footer p {
   .gig-actions { grid-column: 2; }
   .gig-actions:empty { display: none; }
   .gig-btn { padding: 9px 18px; }
-  .gig-free { padding: 8px 2px; font-size: 1rem; }
+  .gig-free { padding: 9px 18px; }
   .gig-actions { flex-wrap: wrap; }
 }
 /* ===== KONCERTY (end) ===== */
