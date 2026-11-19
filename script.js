@@ -282,7 +282,7 @@
     var dd = function (n) { var x = new Date(); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); };
     render([
       { date: dd(5), time: '19:00', title: 'Starsi Panowie', title_en: 'Starsi Panowie — songs of Przybora & Wasowski', place: 'Elektrownia, Radom', map: 'https://www.google.com/maps/search/?api=1&query=Elektrownia%20Radom', tickets: 'https://example.com' },
-      { date: dd(12), time: '', title: 'Młynarski. Bynajmniej.', title_en: null, place: 'Teatr Ziemi Rybnickiej, Rybnik', map: 'https://www.google.com/maps/search/?api=1&query=Teatr%20Ziemi%20Rybnickiej', tickets: null, free: true },
+      { date: dd(12), time: '', title: 'Młynarski. Bynajmniej.', title_en: null, place: 'Teatr Ziemi Rybnickiej, Rybnik', map: 'https://www.google.com/maps/search/?api=1&query=Teatr%20Ziemi%20Rybnickiej', tickets: null, free: true, info: 'https://example.com' },
       { date: dd(30), time: '20:00', title: 'Big Band Akademii Muzycznej', title_en: 'Lodz Academy of Music Big Band', place: 'Sala Koncertowa AM, Łódź', map: null, tickets: 'https://example.com' },
       { date: dd(48), time: '17:00', title: 'Koncert świąteczny', title_en: 'Christmas concert', place: 'Teatr Capitol, Warszawa', map: null, tickets: null }
     ]);
