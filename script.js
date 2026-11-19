@@ -105,15 +105,15 @@
   // Na stronie EN: document.documentElement.lang === 'en' wystarczy (jest w myrczek_en.html)
   var LANG = params.get('lang') === 'en' || document.documentElement.lang === 'en' ? 'en' : 'pl';
   var DEMO = params.has('demo') || API_KEY.indexOf('WKLEJ') === 0;
-  var CACHE_KEY = 'myrczek_koncerty_v1';
+  var CACHE_KEY = 'myrczek_koncerty_v2';
 
   var T = {
     pl: { label: 'Koncerty', title: 'Najbliższe <em>koncerty</em>', loading: 'Wczytywanie…',
-          tickets: 'Bilety', info: 'Organizator', map: 'mapa', more: 'Wszystkie terminy',
+          tickets: 'Bilety', free: 'Wstęp wolny', info: 'Organizator', map: 'mapa', more: 'Wszystkie terminy',
           empty: 'Nowe terminy wkrótce. Zaproszenia i booking: <a href="mailto:myrczek.office@gmail.com">myrczek.office@gmail.com</a>',
           locale: 'pl-PL' },
     en: { label: 'Concerts', title: 'Upcoming <em>concerts</em>', loading: 'Loading…',
-          tickets: 'Tickets', info: 'Organiser', map: 'map', more: 'All dates',
+          tickets: 'Tickets', free: 'Free entry', info: 'Organiser', map: 'map', more: 'All dates',
           empty: 'New dates coming soon. Booking: <a href="mailto:myrczek.office@gmail.com">myrczek.office@gmail.com</a>',
           locale: 'en-GB' }
   }[LANG];
@@ -183,6 +183,8 @@
     var mapOk = !closed && /\d/.test(location);
     var tickets = null;
     if (www.tickets && /^https?:\/\/\S+$/i.test(www.tickets)) tickets = www.tickets;
+    // „WWW bilety: wstęp wolny” (także: wolny, bezpłatny, free) → napis zamiast przycisku
+    var free = !tickets && !!www.tickets && /wolny|bezp[łl]atn|free/i.test(www.tickets);
 
     return {
       date: date, time: time,
@@ -191,6 +193,7 @@
       place: www.place ? clip(www.place) : (location ? clip(location) : null),
       map: mapOk ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(location) : null,
       tickets: tickets,
+      free: free,
       info: (www.info && /^https?:\/\/\S+$/i.test(www.info)) ? www.info : null
     };
   }
@@ -246,6 +249,8 @@
       if (safeUrl(g.tickets)) {
         var a = el('a', 'gig-btn', T.tickets); a.href = g.tickets; a.target = '_blank'; a.rel = 'noopener';
         actions.appendChild(a);
+      } else if (g.free) {
+        actions.appendChild(el('span', 'gig-free', T.free));
       }
       if (safeUrl(g.info) && g.info !== g.tickets) {
         var o = el('a', 'gig-btn gig-btn-ghost', T.info); o.href = g.info; o.target = '_blank'; o.rel = 'noopener';
@@ -277,7 +282,7 @@
     var dd = function (n) { var x = new Date(); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); };
     render([
       { date: dd(5), time: '19:00', title: 'Starsi Panowie', title_en: 'Starsi Panowie — songs of Przybora & Wasowski', place: 'Elektrownia, Radom', map: 'https://www.google.com/maps/search/?api=1&query=Elektrownia%20Radom', tickets: 'https://example.com' },
-      { date: dd(12), time: '', title: 'Młynarski. Bynajmniej.', title_en: null, place: 'Teatr Ziemi Rybnickiej, Rybnik', map: 'https://www.google.com/maps/search/?api=1&query=Teatr%20Ziemi%20Rybnickiej', tickets: null },
+      { date: dd(12), time: '', title: 'Młynarski. Bynajmniej.', title_en: null, place: 'Teatr Ziemi Rybnickiej, Rybnik', map: 'https://www.google.com/maps/search/?api=1&query=Teatr%20Ziemi%20Rybnickiej', tickets: null, free: true },
       { date: dd(30), time: '20:00', title: 'Big Band Akademii Muzycznej', title_en: 'Lodz Academy of Music Big Band', place: 'Sala Koncertowa AM, Łódź', map: null, tickets: 'https://example.com' },
       { date: dd(48), time: '17:00', title: 'Koncert świąteczny', title_en: 'Christmas concert', place: 'Teatr Capitol, Warszawa', map: null, tickets: null }
     ]);
