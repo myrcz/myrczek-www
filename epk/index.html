@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pl" data-lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Strona testowa, ukryta: nie indeksować, nie linkować z menu -->
+<meta name="robots" content="noindex, nofollow">
+<title>Wojciech Myrczek — EPK</title>
+<meta name="description" content="Wojciech Myrczek — jazz vocalist. Electronic press kit: biography, videos, projects, press.">
+<meta property="og:title" content="Wojciech Myrczek — Electronic Press Kit">
+<meta property="og:description" content="Jazz vocalist · Poland · Montreux Jazz Voice Competition winner">
+<meta property="og:image" content="https://myrczek.com/img/photo_04.jpg">
+<meta name="theme-color" content="#0b0b0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0b0a;--bg2:#151513;--line:#2a2925;--text:#eeebe4;--muted:#a19d93;--accent:#c9a45c;
+        --serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,-apple-system,"Segoe UI",Roboto,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65}
+  a{color:inherit}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+
+  /* języki */
+  html[data-lang="pl"] [data-l]:not([data-l="pl"]),html[data-lang="en"] [data-l]:not([data-l="en"]),html[data-lang="de"] [data-l]:not([data-l="de"]){display:none!important}
+  .langs{position:fixed;top:14px;right:14px;z-index:10;display:flex;gap:4px;background:rgba(11,11,10,.75);
+         backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid var(--line);padding:4px}
+  .langs button{background:none;border:0;color:var(--muted);font:500 12px var(--sans);letter-spacing:.12em;padding:6px 9px;cursor:pointer}
+  .langs button.on{color:var(--bg);background:var(--accent)}
+
+  /* hero */
+  .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;
+        background:#111 url("../img/photo_01.jpg") center 15%/cover no-repeat}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,10,.1) 30%,var(--bg) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:52px;width:100%}
+  @media (min-width:820px){
+    .hero{background:var(--bg);overflow:hidden}
+    .hero::before{content:"";position:absolute;top:0;bottom:0;right:0;width:62%;
+      background:url("../img/photo_04.jpg") 30% center/cover no-repeat;
+      -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 35%);mask-image:linear-gradient(to right,transparent 0%,#000 35%)}
+    .hero::after{background:linear-gradient(to bottom,transparent 75%,var(--bg) 100%)}
+    .hero .wrap{max-width:1240px;padding-left:6vw}
+  }
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(50px,10vw,96px);line-height:.95}
+  .tag{margin-top:18px;font-size:15px;color:var(--muted);max-width:34ch}
+
+  section{padding:60px 0;border-top:1px solid var(--line)}
+  h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margin-bottom:22px}
+  h2 em{font-style:italic;color:var(--accent)}
+  h3{font-family:var(--serif);font-weight:600;font-size:22px;margin-bottom:6px}
+  p+p{margin-top:12px}
+  .muted{color:var(--muted)}
+
+  /* fakty */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .fact{background:var(--bg);padding:18px}
+  .fact b{display:block;font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.1;color:var(--accent)}
+  .fact span{display:block;font-size:13px;color:var(--muted);margin-top:6px}
+
+  /* bio */
+  .tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+  .tabs button{background:none;border:1px solid var(--line);color:var(--muted);font:500 13px var(--sans);padding:8px 14px;cursor:pointer}
+  .tabs button.on{border-color:var(--accent);color:var(--text)}
+  .bio{display:none;background:var(--bg2);border:1px solid var(--line);padding:22px}
+  .bio.on{display:block}
+  .copy{margin-top:16px;background:none;border:1px solid var(--accent);color:var(--accent);font:500 12px var(--sans);
+        letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;cursor:pointer}
+
+  /* wideo */
+  .videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .v{position:relative;aspect-ratio:16/9;background:#000 center/cover;border:1px solid var(--line);cursor:pointer;overflow:hidden}
+  .v::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 55%)}
+  .v span{position:absolute;left:12px;bottom:10px;right:12px;z-index:1;font-size:14px;font-weight:500}
+  .v i{position:absolute;z-index:1;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;border:1.5px solid #fff}
+  .v i::after{content:"";position:absolute;left:21px;top:16px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff}
+  .v iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+
+  /* projekty */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .proj{border-left:2px solid var(--accent);padding:4px 0 4px 16px}
+  .proj p{font-size:15px;color:var(--muted)}
+  .proj a{font-size:14px;color:var(--accent);text-decoration:none}
+
+  blockquote+blockquote{margin-top:34px}
+  blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,4vw,28px);line-height:1.35;border-left:2px solid var(--accent);padding-left:20px}
+  cite{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--muted)}
+
+  .stages{columns:2;column-gap:28px;font-size:15px}
+  .stages li{list-style:none;padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+  .stages small{color:var(--muted)}
+
+  .links{display:flex;flex-direction:column;gap:10px}
+  .btn{display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:16px 20px;border:1px solid var(--line);background:var(--bg2)}
+  .btn:hover{border-color:var(--accent)}
+  .btn small{color:var(--muted);font-size:13px}
+  .btn .arr{color:var(--accent)}
+  footer{padding:36px 0 60px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="langs" role="group" aria-label="Language">
+  <button data-set="pl">PL</button><button data-set="en">EN</button><button data-set="de">DE</button>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Electronic Press Kit</div>
+    <h1>Wojciech<br>Myrczek</h1>
+    <p class="tag">
+      <span data-l="pl">Wokalista jazzowy · Polska · zwycięzca Shure Montreux Jazz Voice Competition</span>
+      <span data-l="en">Jazz vocalist · Poland · Shure Montreux Jazz Voice Competition winner</span>
+      <span data-l="de">Jazzsänger · Polen · Gewinner der Shure Montreux Jazz Voice Competition</span>
+    </p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="facts">
+        <div class="fact"><b>10×</b>
+          <span data-l="pl">Wokalista Roku w ankiecie Jazz Top „Jazz Forum” (od 2015)</span>
+          <span data-l="en">Vocalist of the Year, Jazz Forum Jazz Top poll (since 2015)</span>
+          <span data-l="de">Sänger des Jahres im Jazz-Top-Poll von „Jazz Forum“ (seit 2015)</span></div>
+        <div class="fact"><b>Montreux 2013</b>
+          <span data-l="pl">I nagroda i nagroda publiczności, Shure Montreux Jazz Voice Competition</span>
+          <span data-l="en">1st Prize &amp; Audience Award, Shure Montreux Jazz Voice Competition</span>
+          <span data-l="de">1. Preis und Publikumspreis, Shure Montreux Jazz Voice Competition</span></div>
+        <div class="fact"><b>4</b>
+          <span data-l="pl">albumy studyjne, ostatni z orkiestrą Aukso (2024)</span>
+          <span data-l="en">studio albums, the latest with the Aukso orchestra (2024)</span>
+          <span data-l="de">Studioalben, das jüngste mit dem Orchester Aukso (2024)</span></div>
+        <div class="fact"><b>Dr</b>
+          <span data-l="pl">doktor sztuk muzycznych, wykładowca AST w Krakowie</span>
+          <span data-l="en">Doctor of Musical Arts, lecturer at the Academy of Theatre Arts in Kraków</span>
+          <span data-l="de">Doktor der Musikkunst, Dozent an der Theaterakademie Krakau</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Bio</span><span data-l="en">Biography</span><span data-l="de">Biografie</span></h2>
+      <div class="tabs">
+        <button class="on" data-bio="s"><span data-l="pl">Krótkie</span><span data-l="en">Short</span><span data-l="de">Kurz</span></button>
+        <button data-bio="m"><span data-l="pl">Średnie</span><span data-l="en">Medium</span><span data-l="de">Mittel</span></button>
+        <button data-bio="l"><span data-l="pl">Długie</span><span data-l="en">Long</span><span data-l="de">Lang</span></button>
+      </div>
+
+      <div class="bio on" id="bio-s">
+        <div data-l="pl"><p>Wojciech Myrczek – polski wokalista jazzowy, od 2015 roku nieprzerwanie Wokalista Roku w ankiecie Jazz Top „Jazz Forum”. Zwycięzca Shure Montreux Jazz Voice Competition (2013). Łączy tradycję swingu ze współczesną wokalistyką, swobodnie przechodząc od słowa do scatu.</p></div>
+        <div data-l="en"><p>Wojciech Myrczek is a Polish jazz vocalist, named Vocalist of the Year in Jazz Forum’s Jazz Top poll every year since 2015. Winner of the Shure Montreux Jazz Voice Competition (2013), he blends the swing tradition with contemporary vocal technique, moving freely between lyric and scat.</p></div>
+        <div data-l="de"><p>Wojciech Myrczek ist ein polnischer Jazzsänger und wird seit 2015 jedes Jahr im Jazz-Top-Poll der Zeitschrift „Jazz Forum“ zum Sänger des Jahres gewählt. Der Gewinner der Shure Montreux Jazz Voice Competition (2013) verbindet die Swing-Tradition mit zeitgemäßer Gesangstechnik und bewegt sich frei zwischen Liedtext und Scat.</p></div>
+        <button class="copy"><span data-l="pl">Kopiuj tekst</span><span data-l="en">Copy text</span><span data-l="de">Text kopieren</span></button>
+      </div>
+
+      <div class="bio" id="bio-m">
+        <div data-l="pl"><p>Wojciech Myrczek to polski wokalista jazzowy, który łączy tradycję swingu ze współczesnymi technikami wokalnymi, swobodnie przechodząc od słowa do scatu. Od 2015 roku nieprzerwanie otrzymuje tytuł Wokalisty Roku w ankiecie Jazz Top miesięcznika „Jazz Forum”. Zdobył I nagrodę i nagrodę publiczności w Shure Montreux Jazz Voice Competition (2013), Grand Prix Jazz Voices na Litwie (2011) i nagrodę Największa Indywidualność na Bielskiej Zadymce Jazzowej (2010).</p><p>Występował m.in. na Montreux Jazz Festival, The Hague Jazz, Brisbane Jazz Festival i Sofia Jazz Peak. Nagrał cztery albumy, w tym „Młynarski. Bynajmniej.” (2024) z orkiestrą Aukso. Jest doktorem sztuk muzycznych i wykładowcą Akademii Sztuk Teatralnych w Krakowie.</p></div>
+        <div data-l="en"><p>Wojciech Myrczek is a Polish jazz vocalist who blends the swing tradition with contemporary vocal technique, moving freely between lyric and scat. Since 2015 he has been named Vocalist of the Year in the Jazz Top poll of Jazz Forum magazine every year. He won the 1st Prize and the Audience Award at the Shure Montreux Jazz Voice Competition (2013), the Grand Prix at Jazz Voices in Lithuania (2011) and the Most Distinctive Personality award at Bielska Zadymka Jazzowa (2010).</p><p>He has performed at Montreux Jazz Festival, The Hague Jazz, Brisbane Jazz Festival and Sofia Jazz Peak, among others. He has recorded four albums, including “Młynarski. Bynajmniej.” (2024) with the Aukso orchestra. He holds a Doctor of Musical Arts degree and teaches at the Academy of Theatre Arts in Kraków.</p></div>
+        <div data-l="de"><p>Wojciech Myrczek ist ein polnischer Jazzsänger, der die Swing-Tradition mit zeitgemäßer Gesangstechnik verbindet und sich frei zwischen Liedtext und Scat bewegt. Seit 2015 wird er jedes Jahr im Jazz-Top-Poll der Zeitschrift „Jazz Forum“ zum Sänger des Jahres gewählt. Er gewann den 1. Preis und den Publikumspreis der Shure Montreux Jazz Voice Competition (2013), den Grand Prix von Jazz Voices in Litauen (2011) und den Preis für die prägendste Persönlichkeit beim Festival Bielska Zadymka Jazzowa (2010).</p><p>Er trat u. a. beim Montreux Jazz Festival, bei The Hague Jazz, beim Brisbane Jazz Festival und beim Sofia Jazz Peak auf. Er hat vier Alben aufgenommen, darunter „Młynarski. Bynajmniej.“ (2024) mit dem Orchester Aukso. Er ist Doktor der Musikkunst und lehrt an der Theaterakademie in Krakau.</p></div>
+        <button class="copy"><span data-l="pl">Kopiuj tekst</span><span data-l="en">Copy text</span><span data-l="de">Text kopieren</span></button>
+      </div>
+
+      <div class="bio" id="bio-l">
+        <div data-l="pl"><p>Wojciech Myrczek to polski wokalista jazzowy, który z gracją i pasją łączy tradycję swingu ze współczesnymi technikami wokalnymi. Jest absolwentem Instytutu Jazzu Akademii Muzycznej im. Karola Szymanowskiego w Katowicach. W śpiewie swobodnie posługuje się zarówno słowem, jak i scatem.</p><p>Od 2015 roku nieprzerwanie otrzymuje tytuł Wokalisty Roku w ankiecie Jazz Top miesięcznika „Jazz Forum”. Zdobył I nagrodę i nagrodę publiczności w Shure Montreux Jazz Voice Competition (2013), konkursie organizowanym w ramach Montreux Jazz Festival, a także Grand Prix Jazz Voices na Litwie (2011) i nagrodę Największa Indywidualność na Bielskiej Zadymce Jazzowej (2010). Występował na festiwalach w Szwajcarii, Holandii, Australii, Bułgarii i Słowenii oraz na najważniejszych scenach w Polsce, m.in. w NOSPR i NFM.</p><p>Współpracował m.in. z Janem „Ptaszynem” Wróblewskim, Tomaszem Stańką, Henrykiem Miśkiewiczem, Bernardem Maselim i Krzysztofem Herdzinem. W 2025 roku wystąpił na Gali Muzyki Jazzowej Fryderyk Festiwal z Leszkiem Możdżerem i Atom String Quartet. Nagrał cztery albumy: „We’ll Be Together Again” (2010), „Love Revisited” (2014, z Pawłem Tomaszewskim), „Celebrating the Journey” (2022) i „Młynarski. Bynajmniej.” (2024, z Piotrem Schmidtem, Krzysztofem Herdzinem i orkiestrą Aukso).</p><p>Jego najnowszy projekt, „Nowy Śpiewnik Komedy”, to premierowe piosenki do muzyki Krzysztofa Komedy z tekstami Jacka Cygana i Artura Andrusa. Jest doktorem sztuk muzycznych i od 2018 roku wykłada w Akademii Sztuk Teatralnych im. Stanisława Wyspiańskiego w Krakowie.</p></div>
+        <div data-l="en"><p>Wojciech Myrczek is a Polish jazz vocalist who blends the swing tradition with contemporary vocal technique with grace and passion. A graduate of the Jazz Institute at the Karol Szymanowski Academy of Music in Katowice, he moves freely between lyric and scat.</p><p>Since 2015 he has been named Vocalist of the Year in the Jazz Top poll of Jazz Forum magazine every year. He won the 1st Prize and the Audience Award at the Shure Montreux Jazz Voice Competition (2013), held as part of the Montreux Jazz Festival, as well as the Grand Prix at Jazz Voices in Lithuania (2011) and the Most Distinctive Personality award at Bielska Zadymka Jazzowa (2010). He has performed at festivals in Switzerland, the Netherlands, Australia, Bulgaria and Slovenia, and on Poland’s leading stages, including NOSPR and the National Forum of Music.</p><p>He has worked with Jan “Ptaszyn” Wróblewski, Tomasz Stańko, Henryk Miśkiewicz, Bernard Maseli and Krzysztof Herdzin, among others. In 2025 he appeared at the Fryderyk Jazz Music Gala with Leszek Możdżer and Atom String Quartet. His four albums are “We’ll Be Together Again” (2010), “Love Revisited” (2014, with Paweł Tomaszewski), “Celebrating the Journey” (2022) and “Młynarski. Bynajmniej.” (2024, with Piotr Schmidt, Krzysztof Herdzin and the Aukso orchestra).</p><p>His latest project, “Nowy Śpiewnik Komedy” (The New Komeda Songbook), presents new songs set to music by Krzysztof Komeda, with lyrics by Jacek Cygan and Artur Andrus. He holds a Doctor of Musical Arts degree and has taught at the Academy of Theatre Arts in Kraków since 2018.</p></div>
+        <div data-l="de"><p>Wojciech Myrczek ist ein polnischer Jazzsänger, der die Swing-Tradition mit Anmut und Leidenschaft mit zeitgemäßer Gesangstechnik verbindet. Er hat am Jazz-Institut der Karol-Szymanowski-Musikakademie in Katowice studiert und bewegt sich frei zwischen Liedtext und Scat.</p><p>Seit 2015 wird er jedes Jahr im Jazz-Top-Poll der Zeitschrift „Jazz Forum“ zum Sänger des Jahres gewählt. Er gewann den 1. Preis und den Publikumspreis der Shure Montreux Jazz Voice Competition (2013), die im Rahmen des Montreux Jazz Festival stattfindet, sowie den Grand Prix von Jazz Voices in Litauen (2011) und den Preis für die prägendste Persönlichkeit beim Festival Bielska Zadymka Jazzowa (2010). Er trat bei Festivals in der Schweiz, den Niederlanden, Australien, Bulgarien und Slowenien sowie auf den wichtigsten Bühnen Polens auf, darunter im NOSPR und im Nationalen Musikforum in Breslau.</p><p>Er arbeitete u. a. mit Jan „Ptaszyn“ Wróblewski, Tomasz Stańko, Henryk Miśkiewicz, Bernard Maseli und Krzysztof Herdzin zusammen. 2025 trat er bei der Fryderyk-Jazzgala mit Leszek Możdżer und dem Atom String Quartet auf. Seine vier Alben: „We’ll Be Together Again“ (2010), „Love Revisited“ (2014, mit Paweł Tomaszewski), „Celebrating the Journey“ (2022) und „Młynarski. Bynajmniej.“ (2024, mit Piotr Schmidt, Krzysztof Herdzin und dem Orchester Aukso).</p><p>Sein neuestes Projekt „Nowy Śpiewnik Komedy“ (Das neue Komeda-Liederbuch) präsentiert neue Lieder zur Musik von Krzysztof Komeda mit Texten von Jacek Cygan und Artur Andrus. Er ist Doktor der Musikkunst und lehrt seit 2018 an der Theaterakademie in Krakau.</p></div>
+        <button class="copy"><span data-l="pl">Kopiuj tekst</span><span data-l="en">Copy text</span><span data-l="de">Text kopieren</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Wideo</span><span data-l="en">Video</span><span data-l="de">Video</span></h2>
+      <div class="videos">
+        <div class="v" data-yt="GwAtzd4JMrY"><i></i><span>Nowy Śpiewnik Komedy — teaser (live, 2026)</span></div>
+        <div class="v" data-yt="aAZbRwnMEhY"><i></i><span>In a Mellow Tone</span></div>
+        <div class="v" data-yt="iKE17xJpGcc"><i></i><span>Lush Life (feat. Bogusław Kaczmar)</span></div>
+        <div class="v" data-yt="J0whf32wTCo"><i></i><span>Bynajmniej</span></div>
+        <div class="v" data-yt="OoZcPMq35FQ"><i></i><span>Body and Soul</span></div>
+        <div class="v" data-yt="QsvL_Qu_u9g"><i></i><span>The Very First Man — Live Looping Session</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Projekty</span><span data-l="en">Projects</span><span data-l="de">Projekte</span></h2>
+      <div class="projects">
+        <div class="proj"><h3>Nowy Śpiewnik Komedy</h3>
+          <p data-l="pl">Sextet. Premierowe piosenki do muzyki Krzysztofa Komedy z tekstami Jacka Cygana i Artura Andrusa. Premiera 2026, album 2027.</p>
+          <p data-l="en">Sextet. New songs set to Krzysztof Komeda’s music, with lyrics by Jacek Cygan and Artur Andrus. Premiered 2026, album 2027.</p>
+          <p data-l="de">Sextett. Neue Lieder zur Musik von Krzysztof Komeda mit Texten von Jacek Cygan und Artur Andrus. Premiere 2026, Album 2027.</p>
+          <a href="https://myrczek.com/komeda">myrczek.com/komeda →</a></div>
+        <div class="proj"><h3>Wojciech Myrczek Quartet</h3>
+          <p data-l="pl">„Celebrating the Journey” – standardy i ballady z Bogusławem Kaczmarem, Michałem Kapczukiem i Szymonem Madejem.</p>
+          <p data-l="en">“Celebrating the Journey” – standards and ballads with Bogusław Kaczmar, Michał Kapczuk and Szymon Madej.</p>
+          <p data-l="de">„Celebrating the Journey“ – Standards und Balladen mit Bogusław Kaczmar, Michał Kapczuk und Szymon Madej.</p></div>
+        <div class="proj"><h3>Myrczek &amp; Herdzin</h3>
+          <p data-l="pl">Duet z Krzysztofem Herdzinem: piosenki Kabaretu Starszych Panów.</p>
+          <p data-l="en">A duo with pianist Krzysztof Herdzin: songs of the legendary Polish Kabaret Starszych Panów.</p>
+          <p data-l="de">Duo mit dem Pianisten Krzysztof Herdzin: Lieder des legendären polnischen Kabaret Starszych Panów.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Prasa</span><span data-l="en">Press</span><span data-l="de">Presse</span></h2>
+      <blockquote>
+        <span data-l="pl">„Najbardziej jazzowy z jazzowych wokalistów, jacy się ostatnio pokazali. Cechy szczególne: muzykalny, profesjonalny, pomysłowy i do tego Myrczek!”</span>
+        <span data-l="en">“The most jazz of all the jazz vocalists who have emerged lately. Distinguishing features: musical, professional, inventive – and Myrczek on top of that!”</span>
+        <span data-l="de">„Der jazzigste unter den Jazzsängern, die in letzter Zeit aufgetaucht sind. Besondere Kennzeichen: musikalisch, professionell, einfallsreich – und obendrein Myrczek!“</span>
+        <cite>Jan „Ptaszyn” Wróblewski</cite>
+      </blockquote>
+      <blockquote>
+        <span data-l="pl">„Wojciech Myrczek jawi się jako wytrawny mag jazzowego śpiewu, pogodnej, swingowej wokalistyki zawieszonej gdzieś między elegancją Franka Sinatry a przebojowością Michaela Bublé”</span>
+        <span data-l="en">“Wojciech Myrczek is a seasoned master of jazz singing — warm, swinging vocals poised somewhere between the elegance of Frank Sinatra and the infectious appeal of Michael Bublé.”</span>
+        <span data-l="de">„Wojciech Myrczek ist ein versierter Meister des Jazzgesangs – warmer, swingender Gesang, irgendwo zwischen der Eleganz Frank Sinatras und der mitreißenden Ausstrahlung Michael Bublés.“</span>
+        <cite>Dionizy Piątkowski · jazz.pl</cite>
+      </blockquote>
+      <blockquote>
+        <span data-l="pl">„Ogólny efekt jego śpiewu jest po prostu nie do odparcia.” … „Płyta jest perełką od początku do końca.”</span>
+        <span data-l="en">“The overall effect of his singing is simply irresistible.” … “Simply a gem from start to finish.”</span>
+        <span data-l="de">„Die Gesamtwirkung seines Gesangs ist einfach unwiderstehlich.“ … „Schlicht ein Juwel von Anfang bis Ende.“</span>
+        <cite>Adam Baruch · Polish-Jazz Blog (Love Revisited, 2014)</cite>
+      </blockquote>
+      <blockquote>
+        <span data-l="pl">„…duet doskonały, który przypomina choćby wspólne dokonania Tony’ego Bennetta i Billa Evansa.”</span>
+        <span data-l="en">“…a perfect duo, reminiscent of the joint recordings of Tony Bennett and Bill Evans.”</span>
+        <span data-l="de">„…ein perfektes Duo, das an die gemeinsamen Aufnahmen von Tony Bennett und Bill Evans erinnert.“</span>
+        <cite>Rzeczpospolita (Myrczek &amp; Tomaszewski)</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Wybrane sceny</span><span data-l="en">Selected stages</span><span data-l="de">Ausgewählte Bühnen</span></h2>
+      <ul class="stages">
+        <li>Montreux Jazz Festival <small>CH</small></li>
+        <li>The Hague Jazz <small>NL</small></li>
+        <li>Brisbane Jazz Festival <small>AU</small></li>
+        <li>Sofia Jazz Peak <small>BG</small></li>
+        <li>Celje International Jazz Festival <small>SI</small></li>
+        <li>Opus Jazz Club, Budapest <small>HU</small></li>
+        <li>Institut Finlandais, Paris <small>FR</small></li>
+        <li>Hudson Studios, New York <small>US</small></li>
+        <li>NOSPR, Katowice <small>PL</small></li>
+        <li>NFM, Wrocław <small>PL</small></li>
+        <li>Bielska Zadymka Jazzowa <small>PL</small></li>
+        <li>Jazz nad Odrą <small>PL</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><span data-l="pl">Materiały i kontakt</span><span data-l="en">Materials &amp; contact</span><span data-l="de">Material &amp; Kontakt</span></h2>
+      <div class="links">
+        <a class="btn" href="https://drive.google.com/drive/folders/1zJhDMqpW6BSVBO6IKwX1rshKvJ6ZotFd" target="_blank" rel="noopener">
+          <span><span data-l="pl">Zdjęcia prasowe</span><span data-l="en">Press photos</span><span data-l="de">Pressefotos</span>
+          <small>© Michał Szperling</small></span><span class="arr">→</span></a>
+        <a class="btn" href="https://myrczek.com/m/listen.html" target="_blank" rel="noopener">
+          <span><span data-l="pl">Słuchaj</span><span data-l="en">Listen</span><span data-l="de">Anhören</span>
+          <small>Spotify · Apple Music · Tidal · YouTube Music</small></span><span class="arr">→</span></a>
+        <a class="btn" href="mailto:myrczek.office@gmail.com?subject=Wojciech%20Myrczek%20%E2%80%94%20booking">
+          <span>Booking <small>myrczek.office@gmail.com</small></span><span class="arr">→</span></a>
+      </div>
+      <p class="muted" style="margin-top:16px;font-size:14px">
+        <span data-l="pl">Rider techniczny wysyłamy na prośbę.</span>
+        <span data-l="en">Technical rider available on request.</span>
+        <span data-l="de">Technical Rider auf Anfrage.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="https://myrczek.com/">myrczek.com</a> · <a href="https://www.instagram.com/myrcz_music/">Instagram</a> · <a href="https://www.facebook.com/myrcz/">Facebook</a> · <a href="https://www.youtube.com/channel/UCPqUk4sIizwD2QzNYMDUQ6w">YouTube</a><br>
+    © Wojciech Myrczek · <span data-l="pl">zdjęcia</span><span data-l="en">photos</span><span data-l="de">Fotos</span>: Michał Szperling
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    if(["pl","en","de"].indexOf(l)<0) l="pl";
+    root.setAttribute("data-lang",l); root.lang=l;
+    document.querySelectorAll(".langs button").forEach(function(b){b.classList.toggle("on",b.dataset.set===l)});
+    try{history.replaceState(null,"","?lang="+l)}catch(e){}
+  }
+  var q=new URLSearchParams(location.search).get("lang");
+  if(!q){var n=(navigator.language||"pl").slice(0,2);q=(n==="de"||n==="pl")?n:"en"}
+  setLang(q);
+  document.querySelectorAll(".langs button").forEach(function(b){b.onclick=function(){setLang(b.dataset.set)}});
+
+  document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){
+    document.querySelectorAll(".tabs button").forEach(function(x){x.classList.toggle("on",x===b)});
+    document.querySelectorAll(".bio").forEach(function(x){x.classList.toggle("on",x.id==="bio-"+b.dataset.bio)});
+  }});
+  document.querySelectorAll(".copy").forEach(function(b){b.onclick=function(){
+    var l=root.getAttribute("data-lang"), d=b.parentNode.querySelector('[data-l="'+l+'"]');
+    var t=Array.from(d.querySelectorAll("p")).map(function(p){return p.innerText}).join("\n\n");
+    var lbl=b.querySelector('[data-l="'+l+'"]'), old=lbl.textContent;
+    function ok(){lbl.textContent="✓";setTimeout(function(){lbl.textContent=old},1500)}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){})}
+  }});
+
+  document.querySelectorAll(".v").forEach(function(v){
+    var id=v.dataset.yt;
+    v.style.backgroundImage="url(https://i.ytimg.com/vi/"+id+"/hqdefault.jpg)";
+    v.onclick=function(){
+      v.insertAdjacentHTML("beforeend",'<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>');
+      v.onclick=null;
+    };
+  });
+})();
+</script>
+</body>
+</html>

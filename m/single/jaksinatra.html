@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jak Sinatra (faceci z wczoraj) — Wojciech Myrczek</title>
+<meta name="description" content="Posłuchaj singla „Jak Sinatra (faceci z wczoraj)” Wojciecha Myrczka na wybranej platformie streamingowej.">
+<meta property="og:title" content="Jak Sinatra (faceci z wczoraj) — Wojciech Myrczek">
+<meta property="og:image" content="cover-square.jpg">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="cover-square.jpg">
+
+<!-- ============================================================
+     EDYTUJ tu:
+     1. Linki do platform — w sekcji .links
+     2. Plik cover-square.jpg to Twoja okładka (kwadrat) — jeśli podmienisz
+        na nowszą wersję, zachowaj tę samą nazwę pliku
+     ============================================================ -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Crimson+Pro:ital@1&family=Outfit:wght@400;500;700&display=swap');
+
+:root{
+  --black: #060606;
+  --panel: #0d0d0d;
+  --cream: #f2efe9;
+  --muted: #9c9a95;
+  --line: rgba(242,239,233,0.28);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{ background: var(--black); }
+
+body{
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page{
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Wersja desktopowa: okładka po lewej, linki po prawej, bez scrollowania ---------- */
+@media (min-width: 620px){
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 24px;
+    position: relative;
+  }
+
+  body::before{
+    content: "";
+    position: fixed;
+    inset: -60px;
+    background-image: url('cover-square.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(70px) brightness(0.3) saturate(0.9);
+    z-index: 0;
+  }
+
+  .page{
+    position: relative;
+    z-index: 1;
+    min-height: auto;
+    max-width: 860px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 60px 140px rgba(0,0,0,0.7), 0 0 0 1px rgba(242,239,233,0.08);
+  }
+
+  .hero{
+    flex: 0 0 42%;
+    width: 42%;
+  }
+
+  .body-section{
+    flex: 1;
+    padding: 40px 52px;
+  }
+
+  .eyebrow{ display: block; text-align: left; }
+  .links{ gap: 10px; }
+  footer{ text-align: left; }
+}
+
+/* ---------- HERO: kwadratowa okładka singla ---------- */
+.hero{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- SEKCJA LINKÓW ---------- */
+.body-section{
+  padding: 14px 22px 26px;
+}
+
+.eyebrow{
+  display: none;
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link-card{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--cream);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: rise 0.6s ease forwards;
+}
+
+.link-card:hover{
+  border-color: var(--cream);
+  background: rgba(242,239,233,0.05);
+  transform: translateY(-2px);
+}
+
+.link-card:nth-child(1){ animation-delay: 0.05s; }
+.link-card:nth-child(2){ animation-delay: 0.1s; }
+.link-card:nth-child(3){ animation-delay: 0.15s; }
+.link-card:nth-child(4){ animation-delay: 0.2s; }
+.link-card:nth-child(5){ animation-delay: 0.25s; }
+.link-card:nth-child(6){ animation-delay: 0.3s; }
+
+@keyframes rise{ to{ opacity: 1; transform: translateY(0); } }
+
+.link-icon{
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-icon svg{ width: 11px; height: 11px; fill: var(--cream); }
+
+.link-label{
+  flex: 1;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.link-arrow{
+  font-family: 'Italiana', serif;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+/* ---------- STOPKA — ten sam język wizualny co podpisy na okładce ---------- */
+.credit-block{
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.credit-line{
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.credit-label{
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 62px;
+  flex-shrink: 0;
+}
+
+.credit-name{
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+footer{
+  margin-top: 28px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .link-card{ animation: none; opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="hero">
+    <img src="cover-square.jpg" alt="Jak Sinatra (faceci z wczoraj) — okładka singla">
+  </div>
+
+  <div class="body-section">
+
+    <p class="eyebrow">posłuchaj już teraz</p>
+
+    <div class="links">
+      <!-- EDYTUJ: kolejne serwisy dodasz analogicznie, gdy pojawią się kolejne linki -->
+      <a class="link-card" href="https://open.spotify.com/album/3DByz8aF9xRJAm7vyhAVyo" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Spotify</span>
+        <span class="link-arrow">➤</span>
+      </a>
+      <a class="link-card" href="https://music.apple.com/pl/album/jak-sinatra-faceci-z-wczoraj/6781057961?i=6781057964&l=pl" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Apple Music</span>
+        <span class="link-arrow">➤</span>
+      </a>
+      <a class="link-card" href="https://music.youtube.com/watch?v=uZXk609ELaY" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">YouTube Music</span>
+        <span class="link-arrow">➤</span>
+      </a>
+      <a class="link-card" href="https://youtu.be/uZXk609ELaY" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">YouTube</span>
+        <span class="link-arrow">➤</span>
+      </a>
+      <a class="link-card" href="https://tidal.com/album/534088376/u" target="_blank" rel="noopener">
+        <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="link-label">Tidal</span>
+        <span class="link-arrow">➤</span>
+      </a>
+    </div>
+
+    <div class="credit-block">
+      <div class="credit-line">
+        <span class="credit-label">Muzyka</span>
+        <span class="credit-name">Wojciech Myrczek</span>
+      </div>
+      <div class="credit-line">
+        <span class="credit-label">Słowa</span>
+        <span class="credit-name">Artur Andrus</span>
+      </div>
+    </div>
+
+    <footer>© 2026 Wojciech Myrczek</footer>
+
+  </div>
+</div>
+
+</body>
+</html>

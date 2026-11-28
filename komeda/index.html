@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Strona ukryta: nie indeksować, nie linkować z menu -->
+<meta name="robots" content="noindex, nofollow">
+<title>Nowy Śpiewnik Komedy — Wojciech Myrczek</title>
+<meta name="description" content="Muzyka Krzysztofa Komedy z premierowymi tekstami Jacka Cygana i Artura Andrusa. Wojciech Myrczek Sextet — oferta koncertowa.">
+<meta property="og:title" content="Nowy Śpiewnik Komedy — Wojciech Myrczek Sextet">
+<meta property="og:description" content="Muzyka Krzysztofa Komedy z premierowymi tekstami Jacka Cygana i Artura Andrusa.">
+<meta property="og:image" content="https://myrczek.com/komeda/og.jpg">
+<meta name="theme-color" content="#0a0804">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0804; --bg2:#14100a; --line:#2a2219;
+    --text:#efe6d8; --muted:#a89a86; --accent:#c8452f;
+    --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;
+        background:#1a0d08 url("okladka.jpg") center 18%/cover no-repeat}
+  @media (min-width:820px){
+    .hero{background:var(--bg);min-height:86vh;overflow:hidden}
+    .hero::before{content:"";position:absolute;top:0;bottom:0;right:4vw;aspect-ratio:1230/1620;
+      background:url("okladka.jpg") center top/cover no-repeat;
+      -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 30%,#000 75%,transparent 100%),linear-gradient(to bottom,#000 70%,transparent 100%);
+      -webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0%,#000 30%,#000 75%,transparent 100%),linear-gradient(to bottom,#000 70%,transparent 100%);mask-composite:intersect}
+    .hero::after{display:none}
+    .hero .wrap{max-width:1240px;padding-left:6vw;padding-right:6vw}
+    .hero h1,.hero .lead{max-width:56%}
+  }
+  .hero::after{content:"";position:absolute;inset:0;
+        background:linear-gradient(to bottom,rgba(10,8,4,.15) 0%,rgba(10,8,4,.35) 45%,var(--bg) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:56px;width:100%}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,10vw,88px);line-height:.98;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{font-family:var(--serif);font-size:clamp(21px,4.4vw,27px);line-height:1.35;margin-top:22px;max-width:30ch}
+  .byline{margin-top:20px;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+
+  /* SEKCJE */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margin-bottom:22px}
+  h2 em{font-style:italic;color:var(--accent)}
+  p+p{margin-top:14px}
+  .muted{color:var(--muted)}
+
+  /* TEASER */
+  .video{position:relative;aspect-ratio:16/9;background:var(--bg2);border:1px solid var(--line);overflow:hidden}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+             text-align:center;padding:20px;background:#120c07 url("scena.jpg") center/cover}
+  .video .ph::before{content:"";position:absolute;inset:0;background:rgba(10,8,4,.55)}
+  .video .ph>*{position:relative}
+  .play{width:72px;height:72px;border-radius:50%;border:1.5px solid var(--text);display:flex;align-items:center;justify-content:center}
+  .play::after{content:"";border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent var(--text);margin-left:5px}
+
+  /* FAKTY */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+  .fact{background:var(--bg);padding:20px}
+  .fact b{display:block;font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.2}
+  .fact span{display:block;font-size:13px;color:var(--muted);margin-top:6px}
+
+  /* PROGRAM */
+  ol.program{list-style:none;counter-reset:n}
+  ol.program li{counter-increment:n;display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+  ol.program li::before{content:counter(n,decimal-leading-zero);font-size:12px;color:var(--muted);padding-top:6px;min-width:22px}
+  ol.program .t{font-family:var(--serif);font-size:22px;line-height:1.25}
+  ol.program .a{display:block;font-size:13px;color:var(--muted)}
+  ol.program li.bis::before{content:"bis"}
+
+  /* SKŁAD */
+  .band{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+  .band div{border-left:2px solid var(--accent);padding-left:12px}
+  .band b{display:block;font-weight:500}
+  .band span{font-size:14px;color:var(--muted)}
+
+  /* MATERIAŁY */
+  .links{display:flex;flex-direction:column;gap:10px}
+  .btn{display:flex;justify-content:space-between;align-items:center;text-decoration:none;
+       padding:17px 20px;border:1px solid var(--line);background:var(--bg2);transition:border-color .2s}
+  .btn:hover{border-color:var(--accent)}
+  .btn small{color:var(--muted);font-size:13px}
+  .btn .arr{color:var(--accent);font-size:20px}
+
+  .strip{margin-top:30px;aspect-ratio:4/1;background:#120c07 url("zespol.jpg") center/cover;border:1px solid var(--line)}
+  .credit{font-size:14px;color:var(--muted);margin-top:26px}
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Oferta koncertowa · sezon 2027</div>
+    <h1>Nowy Śpiewnik <em>Komedy</em></h1>
+    <p class="lead">Muzyka Krzysztofa Komedy z&nbsp;premierowymi tekstami Jacka Cygana i&nbsp;Artura Andrusa</p>
+    <p class="byline">Wojciech Myrczek Sextet</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Teaser z <em>premiery</em></h2>
+      <div class="video" id="teaser">
+        <div class="ph">
+          <div class="play"></div>
+          <p>Teaser z koncertu premierowego</p>
+          <a href="https://myrczek.com/teaser-komeda" target="_blank" rel="noopener">Obejrzyj</a>
+        </div>
+      </div>
+      <p class="credit">Love Polish Jazz Festival, Tomaszów Mazowiecki, 20 września 2026</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>O <em>projekcie</em></h2>
+      <p>Instrumentalne utwory Krzysztofa Komedy otrzymały słowa – premierowe teksty napisali Jacek Cygan i&nbsp;Artur Andrus. Wojciech Myrczek wykonuje je z&nbsp;jazzowym sextetem, we własnych aranżacjach.</p>
+      <p>To zupełnie nowy materiał: piosenki, które wcześniej nie istniały, zbudowane na kompozycjach Komedy. Premiera odbyła się 20 września 2026 roku podczas 10. Love Polish Jazz Festival, a&nbsp;wiosną 2027 roku ukaże się album z&nbsp;tym repertuarem.</p>
+      <div class="facts">
+        <div class="fact"><b>Premierowe piosenki</b><span>muzyka Komedy, teksty Cygana i Andrusa</span></div>
+        <div class="fact"><b>Sextet</b><span>wokal, trąbka, saksofon tenorowy, fortepian, kontrabas, perkusja</span></div>
+        <div class="fact"><b>Album – wiosna 2027</b><span>zapis koncertu premierowego</span></div>
+      </div>
+      <p class="credit">Pomysłodawca i współautor koncepcji artystycznej projektu: Krzysztof Balkiewicz<br>Aranżacje i kierownictwo muzyczne: Wojciech Myrczek</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><em>Program</em></h2>
+      <ol class="program">
+        <li><div><span class="t">Alea</span><span class="a">Krzysztof Komeda · instrumentalnie</span></div></li>
+        <li><div><span class="t">Pas de deux</span><span class="a">oryg. <i>Ballet Etudes no. 1</i></span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Zagraj mi Paryż</span><span class="a">oryg. temat z filmu <i>Le Départ</i> J. Skolimowskiego</span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Fortepian</span><span class="a">oryg. <i>Temat dla pierwszego, a wariacje dla drugiego świata</i></span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Gdzie była miłość?</span><span class="a">oryg. temat z filmu <i>Wyrok</i> J. Passendorfera</span><span class="a">Komeda / Artur Andrus</span></div></li>
+        <li><div><span class="t">Niekochane</span><span class="a">oryg. temat z filmu <i>Niekochana</i> J. Nasfetera</span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Nie piosenka o miłości</span><span class="a">oryg. <i>Niepiosenka o miłości</i></span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Kochaj mnie na mieście</span><span class="a">oryg. temat z filmu <i>Bariera</i> J. Skolimowskiego</span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Pamięć Warszawy</span><span class="a">oryg. <i>Po katastrofie</i></span><span class="a">Komeda / Jacek Cygan</span></div></li>
+        <li><div><span class="t">Gorzkie żale, słodkie żale</span><span class="a">oryg. <i>Cóż, ja nigdy…</i></span><span class="a">Komeda / Artur Andrus</span></div></li>
+        <li><div><span class="t">Naiwna piosenka o dobrym końcu świata</span><span class="a">oryg. <i>Walc na koniec świata</i></span><span class="a">Komeda / Artur Andrus</span></div></li>
+        <li class="bis"><div><span class="t">Typish Jazz</span><span class="a">Komeda / Artur Andrus</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2><em>Wykonawcy</em></h2>
+      <div class="band">
+        <div><b>Wojciech Myrczek</b><span>śpiew, aranżacje</span></div>
+        <div><b>Piotr Schmidt</b><span>trąbka</span></div>
+        <div><b>Tomasz Wendt</b><span>saksofon tenorowy</span></div>
+        <div><b>Bogusław Kaczmar</b><span>fortepian</span></div>
+        <div><b>Michał Kapczuk</b><span>kontrabas</span></div>
+        <div><b>Szymon Madej</b><span>perkusja</span></div>
+      </div>
+      <div class="strip" role="img" aria-label="Wojciech Myrczek Sextet na scenie"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Dla <em>organizatorów</em></h2>
+      <div class="links">
+        <a class="btn" href="https://drive.google.com/drive/folders/1zJhDMqpW6BSVBO6IKwX1rshKvJ6ZotFd" target="_blank" rel="noopener"><span>Presskit <small>bio i zdjęcia</small></span><span class="arr">→</span></a>
+        <a class="btn" href="mailto:myrczek.office@gmail.com?subject=Nowy%20%C5%9Apiewnik%20Komedy"><span>Kontakt <small>myrczek.office@gmail.com</small></span><span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="https://myrczek.com/">myrczek.com</a> · <a href="https://myrczek.com/m/listen.html">Słuchaj</a><br>
+    © Wojciech Myrczek · zdjęcia: kadry z filmu z koncertu premierowego
+  </div>
+</footer>
+
+<script>
+  // Po wrzuceniu teasera na YouTube wpisz tu ID filmu (część adresu po v=)
+  var YT_ID = "GwAtzd4JMrY";
+  if (YT_ID) {
+    document.getElementById("teaser").innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + YT_ID +
+      '?rel=0&modestbranding=1" title="Nowy Śpiewnik Komedy – teaser" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wojciech Myrczek</title>
+<meta name="description" content="Wojciech Myrczek — wokalista jazzowy. Posłuchaj i śledź.">
+<meta property="og:title" content="Wojciech Myrczek">
+<meta property="og:description" content="Wokalista jazzowy — posłuchaj i śledź.">
+<meta property="og:image" content="https://myrczek.com/m/listen_foto.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0804">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     qrlanding.html — strona z kodu QR (pocztówki, płyty)
+     EDYTUJ tu:
+     1. Linki — sekcja .links (Spotify zostaje główną akcją)
+     2. Zdjęcie — listen_foto.jpg (ten sam plik co na stronie listen.html)
+     3. „Najbliższy koncert” pobiera się sam z kalendarza KONCERTY PUBLICZNE
+     ============================================================ -->
+
+<style>
+  :root{
+    --bg:#0a0804; --bg2:#100e09;
+    --gold:#c9a84c; --gold-light:#e8cc80;
+    --cream:#f0e8d8; --muted:#7a7060; --white:#faf8f3;
+    --line:rgba(201,168,76,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{
+    color:var(--cream);
+    font-family:"Montserrat",-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-weight:300;
+    min-height:100vh;
+    display:flex;justify-content:center;
+  }
+  .page{width:100%;max-width:460px;background:var(--bg2);min-height:100vh;position:relative}
+
+  /* ---------- ZDJĘCIE ---------- */
+  .hero{position:relative;height:58vh;min-height:360px;max-height:560px;overflow:hidden}
+  .hero img{width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom, rgba(10,8,4,.35) 0%, transparent 22%, transparent 48%, rgba(16,14,9,.85) 82%, var(--bg2) 100%);
+  }
+
+  /* ---------- PL / EN ---------- */
+  .lang{
+    position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:3;
+    display:flex;gap:2px;padding:3px;
+    border:1px solid rgba(201,168,76,.45);background:rgba(10,8,4,.45);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  }
+  .lang button{
+    background:transparent;border:none;color:var(--cream);
+    font:500 .62rem "Montserrat",sans-serif;letter-spacing:.18em;
+    padding:6px 11px;cursor:pointer;transition:.2s;
+  }
+  .lang button.active{background:var(--gold);color:var(--bg)}
+
+  /* ---------- TREŚĆ ---------- */
+  .content{position:relative;z-index:2;margin-top:-118px;padding:0 24px 34px}
+  .label{
+    font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:14px;margin-bottom:10px;
+  }
+  .label::after{content:"";width:36px;height:1px;background:var(--gold);opacity:.5}
+  h1{
+    font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;
+    font-size:3.1rem;line-height:.95;color:var(--white);
+  }
+  h1 em{font-style:italic;color:var(--gold-light)}
+  .thanks{
+    font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;
+    font-size:1.2rem;line-height:1.35;color:rgba(240,232,216,.75);
+    margin:16px 0 24px;
+  }
+
+  /* ---------- PRZYCISKI ---------- */
+  .links{display:flex;flex-direction:column;gap:8px}
+  .btn{
+    display:flex;align-items:center;gap:16px;
+    padding:14px 18px;border:1px solid var(--line);
+    color:var(--cream);text-decoration:none;
+    font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+    transition:border-color .25s, background .25s, transform .15s;
+    opacity:0;transform:translateY(8px);animation:rise .6s ease forwards;
+  }
+  .btn:hover{border-color:var(--gold);background:rgba(201,168,76,.07)}
+  .btn:active{transform:translateY(1px)}
+  .btn .ico{width:20px;height:20px;flex:0 0 20px;color:var(--gold-light)}
+  .btn .txt{flex:1}
+  .btn .arrow{font-family:"Cormorant Garamond",serif;font-size:1.3rem;line-height:1;color:var(--muted);transition:.25s}
+  .btn:hover .arrow{color:var(--gold);transform:translateX(3px)}
+  .btn.primary{background:var(--gold);border-color:var(--gold);color:var(--bg);font-weight:600;padding:17px 18px}
+  .btn.primary .ico,.btn.primary .arrow{color:var(--bg)}
+  .btn.primary:hover{background:var(--gold-light)}
+  .links .btn:nth-child(1){animation-delay:.05s}
+  .links .btn:nth-child(3){animation-delay:.12s}
+  .links .btn:nth-child(4){animation-delay:.17s}
+  .links .btn:nth-child(5){animation-delay:.22s}
+  .links .btn:nth-child(6){animation-delay:.27s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  .more{
+    text-align:center;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);margin:2px 0 10px;
+  }
+  .more a{display:inline-block;margin-top:5px;white-space:nowrap;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35)}
+
+  /* ---------- NAJBLIŻSZY KONCERT ---------- */
+  .next{display:none;margin-top:26px;padding:18px 0 4px;border-top:1px solid var(--line)}
+  .next.show{display:block}
+  .next-label{font-size:.56rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .next-row{display:flex;gap:18px;align-items:center;text-decoration:none;color:inherit}
+  .next-date{text-align:center;line-height:1;min-width:54px}
+  .next-day{font-family:"Cormorant Garamond",serif;font-size:2.6rem;font-weight:300;color:var(--gold-light)}
+  .next-month{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+  .next-title{font-family:"Cormorant Garamond",serif;font-size:1.25rem;color:var(--white);line-height:1.2}
+  .next-meta{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px;line-height:1.6}
+  .next-all{display:inline-block;margin-top:14px;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.35)}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+  @media (min-width:600px){
+    body{padding:40px 0;background:radial-gradient(900px 520px at 50% 0%, rgba(201,168,76,.08), transparent 60%), var(--bg)}
+    .page{min-height:auto;border:1px solid rgba(201,168,76,.18);box-shadow:0 50px 120px rgba(0,0,0,.6)}
+  }
+  @media (prefers-reduced-motion:reduce){.btn{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="lang" role="group" aria-label="Język / Language">
+    <button id="btn-pl" class="active" aria-pressed="true">PL</button>
+    <button id="btn-en" aria-pressed="false">EN</button>
+  </div>
+
+  <div class="hero"><img src="listen_foto.jpg" alt="Wojciech Myrczek"></div>
+
+  <main class="content">
+    <div class="label" data-pl="Wokalista jazzowy" data-en="Jazz vocalist">Wokalista jazzowy</div>
+    <h1>Wojciech<br><em>Myrczek</em></h1>
+    <p class="thanks" data-pl="Dziękuję, że słuchasz. Zostańmy w kontakcie." data-en="Thank you for listening. Let’s stay in touch.">Dziękuję, że słuchasz. Zostańmy w kontakcie.</p>
+
+    <nav class="links">
+      <!-- GŁÓWNA AKCJA: Spotify -->
+      <a class="btn primary" href="https://open.spotify.com/artist/2V0wWmZlOYYnfR6RyZoXZK" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 14.4a.62.62 0 01-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 11-.28-1.22c3.81-.87 7.09-.5 9.72 1.11.3.18.39.57.21.86zm1.23-2.74a.78.78 0 01-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 11-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33.37.23.49.71.25 1.07zm.1-2.85C14.8 8.96 9.5 8.78 6.42 9.71a.93.93 0 11-.54-1.79c3.53-1.07 9.39-.86 13.09 1.34a.94.94 0 01-.96 1.61z"/></svg></span>
+        <span class="txt" data-pl="Słuchaj na Spotify" data-en="Listen on Spotify">Słuchaj na Spotify</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <p class="more"><span data-pl="Inne serwisy:" data-en="Other services:">Inne serwisy:</span> <a href="listen.html">Apple Music · YouTube Music · Tidal</a></p>
+
+      <a class="btn" href="https://www.instagram.com/myrcz_music/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="txt">Instagram</span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn" href="https://www.facebook.com/myrcz/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg></span>
+        <span class="txt">Facebook</span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn" href="https://www.youtube.com/@WojciechMyrczek" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.41-4.73a2.5 2.5 0 00-1.76-1.77C19.29 5.1 12 5.1 12 5.1s-7.29 0-8.83.4a2.5 2.5 0 00-1.76 1.77C1 8.8 1 12 1 12s0 3.2.41 4.73a2.5 2.5 0 001.76 1.77c1.54.4 8.83.4 8.83.4s7.29 0 8.83-.4a2.5 2.5 0 001.76-1.77C23 15.2 23 12 23 12zm-13 3.2V8.8l5.5 3.2-5.5 3.2z"/></svg></span>
+        <span class="txt">YouTube</span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn" href="../" data-href-en="../en/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"/></svg></span>
+        <span class="txt" data-pl="Strona internetowa" data-en="Website">Strona internetowa</span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <!-- NAJBLIŻSZY KONCERT — pokazuje się tylko, gdy w kalendarzu jest nadchodzący koncert -->
+    <section class="next" id="next">
+      <div class="next-label" data-pl="Najbliższy koncert" data-en="Next concert">Najbliższy koncert</div>
+      <div class="next-row">
+        <div class="next-date"><div class="next-day" id="nDay"></div><div class="next-month" id="nMonth"></div></div>
+        <div><div class="next-title" id="nTitle"></div><div class="next-meta" id="nMeta"></div></div>
+      </div>
+      <a class="next-all" id="nAll" href="../#concerts" data-pl="Wszystkie koncerty →" data-en="All concerts →">Wszystkie koncerty →</a>
+    </section>
+
+    <footer>&copy; <span id="year"></span> Wojciech Myrczek · fot. Michał Szperling</footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var LANG = 'pl', NEXT = null;
+  var btnPl = document.getElementById('btn-pl'), btnEn = document.getElementById('btn-en');
+
+  function setLang(lang) {
+    LANG = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-' + lang + ']').forEach(function (el) { el.textContent = el.getAttribute('data-' + lang); });
+    var site = document.querySelector('[data-href-en]');
+    if (site) site.href = lang === 'en' ? site.getAttribute('data-href-en') : '../';
+    document.getElementById('nAll').href = (lang === 'en' ? '../en/' : '../') + '#concerts';
+    var pl = lang === 'pl';
+    btnPl.classList.toggle('active', pl); btnPl.setAttribute('aria-pressed', pl);
+    btnEn.classList.toggle('active', !pl); btnEn.setAttribute('aria-pressed', !pl);
+    if (NEXT) showNext(NEXT);
+  }
+  btnPl.addEventListener('click', function () { setLang('pl'); });
+  btnEn.addEventListener('click', function () { setLang('en'); });
+
+  // ---------- Najbliższy koncert (ten sam kalendarz i klucz co sekcja Koncerty na stronie) ----------
+  var API_KEY = 'AIzaSyB_eiR59HJtY74v6RQnA_Lgw8NalsQwDng';
+  var CAL = 'ce738138ab9576f222a610dd684a39f2cf4f4e21b5fc6b4bd35888a1f10fd266@group.calendar.google.com';
+
+  function www(desc, key) {
+    var m = (desc || '').replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '')
+      .match(new RegExp('^\\s*WWW' + (key ? '\\s+' + key : '') + '\\s*:\\s*(.+?)\\s*$', 'im'));
+    return m ? m[1] : null;
+  }
+  function showNext(ev) {
+    var p = ev.date.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2], 12);
+    var loc = LANG === 'en' ? 'en-GB' : 'pl-PL';
+    document.getElementById('nDay').textContent = d.getDate();
+    document.getElementById('nMonth').textContent = new Intl.DateTimeFormat(loc, { month: 'short' }).format(d).replace('.', '');
+    document.getElementById('nTitle').textContent = (LANG === 'en' && ev.title_en) ? ev.title_en : ev.title;
+    document.getElementById('nMeta').textContent = [new Intl.DateTimeFormat(loc, { weekday: 'long' }).format(d), ev.place].filter(Boolean).join(' · ');
+    document.getElementById('next').classList.add('show');
+  }
+
+  var url = 'https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(CAL) + '/events?key=' + API_KEY
+    + '&singleEvents=true&orderBy=startTime&maxResults=10&timeMin=' + encodeURIComponent(new Date(Date.now() - 864e5).toISOString())
+    + '&fields=' + encodeURIComponent('items(summary,description,location,start,status)');
+  var today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Warsaw' });
+
+  fetch(url).then(function (r) { return r.ok ? r.json() : { items: [] }; }).then(function (data) {
+    (data.items || []).some(function (e) {
+      var title = (e.summary || '').trim();
+      if (!title || e.status === 'cancelled' || /^\s*(\?|ODWO[ŁL]ANY)/i.test(title) || /zamkni[eę]t/i.test(title)) return false;
+      if ((www(e.description) || '').toLowerCase() === 'ukryj') return false;
+      var date = e.start.date || new Date(e.start.dateTime).toLocaleDateString('sv-SE', { timeZone: 'Europe/Warsaw' });
+      if (date < today) return false;
+      NEXT = {
+        date: date,
+        title: www(e.description) || title,
+        title_en: www(e.description, 'EN'),
+        place: www(e.description, 'miejsce') || (e.location || '').split(',').slice(-1)[0].replace(/\d{2}-\d{3}\s*/, '').trim()
+      };
+      showNext(NEXT);
+      return true;
+    });
+  }).catch(function () {});
+
+  if ((navigator.language || '').slice(0, 2).toLowerCase() === 'en') setLang('en');
+})();
+</script>
+</body>
+</html>

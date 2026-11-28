@@ -1,0 +1,57 @@
+# Co godzinę sprawdza, czy strona działa. Gdy nie działa, otwiera zgłoszenie (Issue),
+# a GitHub wysyła powiadomienie. Gdy strona wróci, zamyka zgłoszenie z komentarzem.
+name: Strażnik dostępności
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: dostepnosc
+  cancel-in-progress: false
+
+jobs:
+  sprawdz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Sprawdź adresy
+        id: check
+        run: |
+          fail=""
+          for url in \
+            "https://myrczek.com/" \
+            "https://myrczek.com/en/" \
+            "https://myrczek.com/m/qrlanding.html" \
+            "https://myrczek.com/teaser-komeda/"; do
+            ok=0
+            for try in 1 2 3; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "$url" || echo 000)
+              if [ "$code" = "200" ]; then ok=1; break; fi
+              sleep 20
+            done
+            echo "$url -> $code"
+            [ $ok = 1 ] || fail="$fail\n- $url (kod: $code)"
+          done
+          printf 'fail<<EOF\n%b\nEOF\n' "$fail" >> "$GITHUB_OUTPUT"
+
+      - name: Otwórz lub zamknij zgłoszenie
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FAIL: ${{ steps.check.outputs.fail }}
+        run: |
+          title="Strona nie działa"
+          num=$(gh issue list -R "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number -q '.[0].number')
+          if [ -n "$(echo "$FAIL" | tr -d '[:space:]')" ]; then
+            body=$(printf 'Te adresy nie odpowiadają poprawnie (3 próby):\n%s\n\nSprawdzono: %s UTC' "$FAIL" "$(date -u '+%Y-%m-%d %H:%M')")
+            if [ -z "$num" ]; then
+              gh issue create -R "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+            fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" -R "$GITHUB_REPOSITORY" --comment "Strona znowu działa ($(date -u '+%Y-%m-%d %H:%M') UTC)."
+          fi

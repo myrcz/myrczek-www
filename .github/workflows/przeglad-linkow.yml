@@ -1,0 +1,37 @@
+# Raz w tygodniu (poniedziałek rano) sprawdza wszystkie linki na stronie.
+# Gdy coś jest zepsute, otwiera zgłoszenie z listą. Gdy wszystko działa, zamyka stare zgłoszenie.
+name: Przegląd linków
+
+on:
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  linki:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sprawdź linki
+        run: python3 .github/scripts/sprawdz_linki.py > raport.md || true
+      - name: Zgłoszenie
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat raport.md
+          title="Zepsute linki na stronie"
+          num=$(gh issue list -R "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number -q '.[0].number')
+          if grep -q '^- ' raport.md; then
+            if [ -z "$num" ]; then
+              gh issue create -R "$GITHUB_REPOSITORY" --title "$title" --body-file raport.md
+            else
+              gh issue comment "$num" -R "$GITHUB_REPOSITORY" --body-file raport.md
+            fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" -R "$GITHUB_REPOSITORY" --comment "Wszystkie linki znowu działają."
+          fi
